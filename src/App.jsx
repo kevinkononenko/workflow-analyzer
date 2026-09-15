@@ -83,8 +83,8 @@ function App() {
         <p className="eyebrow">B2B product patterns, mapped</p>
         <h1 id="page-title">How do customers actually use this product?</h1>
         <p className="intro-copy">
-          See how a product&apos;s features work together across the customer journey to complete
-          one essential workflow.
+          Users need to complete a real workflow—not just use features. See how these products
+          help them get real work done.
         </p>
       </section>
 
