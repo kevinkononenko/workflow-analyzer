@@ -9,7 +9,7 @@ import {
 const products = [
   {
     name: "Jira",
-    description: "Plan, assign, and track work from backlog to delivery.",
+    description: "Track my work from assignment to done.",
     icon: siJira,
     color: "#2684FF",
     code: "01",
@@ -17,7 +17,7 @@ const products = [
   },
   {
     name: "Google Drive",
-    description: "Create, share, and collaborate on files from one place.",
+    description: "Create, organize, and share the files my team needs.",
     icon: siGoogledrive,
     color: "#4285F4",
     code: "02",
@@ -25,7 +25,7 @@ const products = [
   },
   {
     name: "GitHub",
-    description: "Build, review, and ship software with your team.",
+    description: "Build, review, and ship software with my team.",
     icon: siGithub,
     color: "#F0F2F5",
     code: "03",
@@ -33,7 +33,7 @@ const products = [
   },
   {
     name: "Salesforce",
-    description: "Manage customer relationships from lead to renewal.",
+    description: "Know which deal to advance and what I need to do next.",
     icon: siSalesforce,
     color: "#00A1E0",
     code: "04",
@@ -41,7 +41,7 @@ const products = [
   },
   {
     name: "Zoom",
-    description: "Meet, collaborate, and make decisions across distance.",
+    description: "Meet with people, align quickly, and move decisions forward.",
     icon: siZoom,
     color: "#2D8CFF",
     code: "05",
