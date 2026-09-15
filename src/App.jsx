@@ -81,9 +81,10 @@ function App() {
 
       <section className="intro" aria-labelledby="page-title">
         <p className="eyebrow">B2B product patterns, mapped</p>
-        <h1 id="page-title">What workflow does this product own?</h1>
+        <h1 id="page-title">How do customers actually use this product?</h1>
         <p className="intro-copy">
-          Explore the essential customer journey behind the tools teams use to get work done.
+          See how a product&apos;s features work together across the customer journey to complete
+          one essential workflow.
         </p>
       </section>
 
