@@ -13,6 +13,7 @@ const products = [
     icon: siJira,
     color: "#2684FF",
     code: "01",
+    slug: "jira",
   },
   {
     name: "Google Drive",
@@ -20,6 +21,7 @@ const products = [
     icon: siGoogledrive,
     color: "#4285F4",
     code: "02",
+    slug: "google-drive",
   },
   {
     name: "GitHub",
@@ -27,6 +29,7 @@ const products = [
     icon: siGithub,
     color: "#F0F2F5",
     code: "03",
+    slug: "github",
   },
   {
     name: "Salesforce",
@@ -34,6 +37,7 @@ const products = [
     icon: siSalesforce,
     color: "#00A1E0",
     code: "04",
+    slug: "salesforce",
   },
   {
     name: "Zoom",
@@ -41,6 +45,7 @@ const products = [
     icon: siZoom,
     color: "#2D8CFF",
     code: "05",
+    slug: "zoom",
   },
 ];
 
@@ -58,13 +63,14 @@ function App() {
   return (
     <main>
       <header className="site-header">
-        <a className="wordmark" href="/workflow-analyzer/" aria-label="Workflow Analyzer home">
+        <a className="wordmark" href="/workflow-analyzer/" aria-label="Workflow Inspector home">
           <span className="wordmark-glyph" aria-hidden="true">
-            <i />
-            <i />
-            <i />
+            <svg viewBox="0 0 24 24">
+              <circle cx="10.5" cy="10.5" r="6.75" />
+              <path d="m15.5 15.5 5 5" />
+            </svg>
           </span>
-          <span>workflow analyzer</span>
+          <span>Workflow Inspector</span>
         </a>
         <div className="header-meta" aria-label="Library status">
           <span>Pattern library</span>
@@ -89,10 +95,12 @@ function App() {
 
         <div className="product-grid">
           {products.map((product) => (
-            <article
+            <a
               className="product-card"
+              href={`/workflow-analyzer/${product.slug}/`}
               key={product.name}
               style={{ "--brand": product.color }}
+              aria-label={`Inspect the ${product.name} workflow`}
             >
               <div className="card-topline">
                 <ProductMark {...product} />
@@ -102,11 +110,8 @@ function App() {
                 <h3>{product.name}</h3>
                 <p>{product.description}</p>
               </div>
-              <div className="card-footer" aria-hidden="true">
-                <span>Sacred workflow</span>
-                <span className="arrow">&#8599;</span>
-              </div>
-            </article>
+              <span className="card-action">Inspect workflow</span>
+            </a>
           ))}
         </div>
       </section>

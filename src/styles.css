@@ -63,25 +63,20 @@ main {
 }
 
 .wordmark-glyph {
-  position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 4px);
-  align-items: end;
-  gap: 3px;
-  width: 20px;
-  height: 20px;
+  place-items: center;
+  width: 24px;
+  height: 24px;
 }
 
-.wordmark-glyph i {
-  display: block;
-  width: 4px;
-  background: var(--accent);
-  border-radius: 3px;
+.wordmark-glyph svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-width: 2.1;
 }
-
-.wordmark-glyph i:nth-child(1) { height: 9px; }
-.wordmark-glyph i:nth-child(2) { height: 18px; }
-.wordmark-glyph i:nth-child(3) { height: 13px; }
 
 .header-meta {
   display: flex;
@@ -176,6 +171,9 @@ h1 {
   background:
     radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--brand, #ffffff) 9%, transparent), transparent 37%),
     var(--surface);
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
   transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
 }
 
@@ -185,8 +183,13 @@ h1 {
 
 .product-card:hover {
   transform: translateY(-4px);
-  border-color: #444a52;
+  border-color: color-mix(in srgb, var(--brand) 38%, #444a52);
   background-color: var(--surface-raised);
+}
+
+.product-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .card-topline {
@@ -219,7 +222,7 @@ h1 {
 }
 
 .card-copy {
-  margin: auto 0 44px;
+  margin: auto 0 30px;
 }
 
 .card-copy h3 {
@@ -237,22 +240,25 @@ h1 {
   line-height: 1.5;
 }
 
-.card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-  color: #727984;
+.card-action {
+  align-self: flex-start;
+  padding: 10px 14px;
+  border: 1px solid #3b4149;
+  border-radius: 999px;
+  background: #181b20;
+  color: #dfe3e8;
   font-family: "DM Mono", monospace;
-  font-size: 0.68rem;
+  font-size: 0.72rem;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
 }
 
-.arrow {
-  color: var(--accent);
-  font-size: 1rem;
+.product-card:hover .card-action {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #090a0b;
 }
 
 @media (max-width: 900px) {
