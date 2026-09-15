@@ -163,7 +163,7 @@ h1 {
   display: flex;
   grid-column: span 2;
   flex-direction: column;
-  min-height: 320px;
+  min-height: 390px;
   padding: 26px;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -238,6 +238,35 @@ h1 {
   color: #a5abb3;
   font-size: 1rem;
   line-height: 1.5;
+}
+
+.card-meta {
+  display: grid;
+  gap: 8px;
+  margin: 22px 0 0;
+}
+
+.card-meta > div {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 12px;
+  align-items: baseline;
+}
+
+.card-meta dt {
+  color: #68717c;
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.card-meta dd {
+  margin: 0;
+  color: #d5d9de;
+  font-size: 0.82rem;
+  line-height: 1.4;
 }
 
 .card-action {
@@ -488,8 +517,12 @@ h1 {
   }
 
   .product-card {
-    min-height: 280px;
+    min-height: 350px;
     padding: 22px;
+  }
+
+  .card-meta > div {
+    grid-template-columns: 84px minmax(0, 1fr);
   }
 
   .stage-explorer {
