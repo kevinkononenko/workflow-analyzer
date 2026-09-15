@@ -1,6 +1,10 @@
-// Solution records will be added after their card format is defined.
-// Each record can belong to one product and one or more workflow stages.
-export const solutions = [];
+import { productWorkflows, isWorkflowStageReady } from "./productWorkflows";
+
+// Completed timeline entries automatically become searchable homepage solutions.
+export const solutions = Object.values(productWorkflows)
+  .flat()
+  .filter(isWorkflowStageReady)
+  .map((record) => ({ ...record, stageIds: [record.stageId] }));
 
 export function findSolutionsByStages(selectedStageIds) {
   if (selectedStageIds.length === 0) return [];
