@@ -5,6 +5,7 @@ import {
   siSalesforce,
   siZoom,
 } from "simple-icons/icons";
+import StageExplorer from "./components/StageExplorer";
 
 const products = [
   {
@@ -116,6 +117,8 @@ function App() {
           ))}
         </div>
       </section>
+
+      <StageExplorer />
     </main>
   );
 }

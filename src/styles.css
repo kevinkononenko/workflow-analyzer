@@ -261,6 +261,172 @@ h1 {
   color: #090a0b;
 }
 
+.stage-explorer {
+  margin-top: 112px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.stage-explorer-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: 48px;
+  align-items: end;
+}
+
+.section-kicker {
+  margin: 0 0 14px;
+  color: var(--accent);
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.stage-explorer-heading h2 {
+  max-width: 620px;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+}
+
+.stage-explorer-heading > p {
+  margin: 0 0 2px;
+  color: #a5abb3;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.stage-filter {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 42px;
+}
+
+.stage-filter-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: #c5cad0;
+  cursor: pointer;
+  font: 500 0.9rem "Inter", system-ui, sans-serif;
+  text-align: left;
+  transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+
+.stage-filter-button:hover {
+  border-color: #4b525c;
+  background: var(--surface-raised);
+  color: #fff;
+}
+
+.stage-filter-button[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #090a0b;
+}
+
+.stage-filter-button:focus-visible,
+.results-bar button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.stage-number {
+  color: #68707a;
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+}
+
+.stage-filter-button[aria-pressed="true"] .stage-number {
+  color: #454b16;
+}
+
+.results-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 62px;
+  margin-top: 30px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: #777f89;
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.results-bar button {
+  padding: 8px 0;
+  border: 0;
+  border-bottom: 1px solid #6f7782;
+  background: transparent;
+  color: #d8dce1;
+  cursor: pointer;
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+.solution-results {
+  min-height: 230px;
+  padding-top: 18px;
+}
+
+.solution-empty {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-height: 210px;
+  padding: 28px;
+  border: 1px dashed #343941;
+  border-radius: 14px;
+  background: rgba(15, 17, 20, 0.72);
+}
+
+.empty-glyph {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #353b43;
+  border-radius: 50%;
+  color: var(--accent);
+}
+
+.empty-glyph svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.8;
+}
+
+.solution-empty h3 {
+  margin: 0 0 7px;
+  color: #e8eaed;
+  font-size: 1.05rem;
+}
+
+.solution-empty p {
+  margin: 0;
+  color: #858d97;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
 @media (max-width: 900px) {
   .product-card {
     grid-column: span 3;
@@ -272,6 +438,10 @@ h1 {
 
   .product-card:last-child {
     grid-column: 2 / span 4;
+  }
+
+  .stage-filter {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -320,6 +490,38 @@ h1 {
   .product-card {
     min-height: 280px;
     padding: 22px;
+  }
+
+  .stage-explorer {
+    margin-top: 76px;
+  }
+
+  .stage-explorer-heading {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .stage-filter {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 32px;
+  }
+
+  .stage-filter-button {
+    min-height: 50px;
+    padding: 0 12px;
+    font-size: 0.82rem;
+  }
+
+  .solution-empty {
+    align-items: flex-start;
+    min-height: 180px;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 390px) {
+  .stage-filter {
+    grid-template-columns: 1fr;
   }
 }
 
