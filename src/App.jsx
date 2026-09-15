@@ -74,7 +74,7 @@ function App() {
   return (
     <main>
       <header className="site-header">
-        <a className="wordmark" href="/workflow-analyzer/" aria-label="Workflow Inspector home">
+        <a className="wordmark" href="/workflow-inspector/" aria-label="Workflow Inspector home">
           <span className="wordmark-glyph" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <circle cx="10.5" cy="10.5" r="6.75" />
@@ -109,7 +109,7 @@ function App() {
           {products.map((product) => (
             <a
               className="product-card"
-              href={`/workflow-analyzer/${product.slug}/`}
+              href={`/workflow-inspector/${product.slug}/`}
               key={product.name}
               style={{ "--brand": product.color }}
               aria-label={`Inspect the ${product.name} workflow`}

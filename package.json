@@ -1,5 +1,5 @@
 {
-  "name": "workflow-analyzer",
+  "name": "workflow-inspector",
   "private": true,
   "version": "0.1.0",
   "type": "module",

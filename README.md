@@ -9,4 +9,4 @@ npm install
 npm run dev
 ```
 
-The production build is configured for deployment at `/workflow-analyzer/` on GitHub Pages.
+The production build is configured for deployment at `/workflow-inspector/` on GitHub Pages.
