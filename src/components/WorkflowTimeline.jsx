@@ -1,5 +1,6 @@
 import { Chrono } from "react-chrono";
 import { workflowStages } from "../data/workflowStages";
+import StageNavigation from "./StageNavigation";
 import WorkflowStageCard from "./WorkflowStageCard";
 
 const timelineTheme = {
@@ -22,11 +23,23 @@ const timelineTheme = {
 
 export default function WorkflowTimeline({ workflow }) {
   const recordsByStage = new Map(workflow.map((record) => [record.stageId, record]));
-  const items = workflowStages.map((stage) => ({
+  const items = workflowStages.map((stage, index) => ({
     id: stage.id,
-    title: `${stage.number} ${stage.name}`,
+    title: (
+      <div className="workflow-stage-title">
+        <span>{stage.number} {stage.name}</span>
+        <StageNavigation
+          stageName={stage.name}
+          previousStageId={workflowStages[index - 1]?.id}
+          nextStageId={workflowStages[index + 1]?.id}
+        />
+      </div>
+    ),
     timelineContent: (
-      <WorkflowStageCard stage={stage} record={recordsByStage.get(stage.id)} />
+      <WorkflowStageCard
+        stage={stage}
+        record={recordsByStage.get(stage.id)}
+      />
     ),
   }));
 

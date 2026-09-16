@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import AnnotationSessionToolbar from "../components/AnnotationSessionToolbar";
 import ProductMark from "../components/ProductMark";
 import SiteHeader from "../components/SiteHeader";
 import WorkflowTimeline from "../components/WorkflowTimeline";
@@ -24,6 +25,9 @@ export default function ProductWorkflowPage() {
   if (!product) return <Navigate to="/" replace />;
 
   const workflow = getProductWorkflow(product.slug);
+  const annotationMode =
+    import.meta.env.DEV &&
+    new URLSearchParams(window.location.search).get("annotate") === "1";
 
   return (
     <main className="workflow-page" style={{ "--brand": product.color }}>
@@ -33,6 +37,10 @@ export default function ProductWorkflowPage() {
         <ArrowLeft aria-hidden="true" size={16} />
         All products
       </Link>
+
+      {annotationMode && (
+        <AnnotationSessionToolbar productSlug={product.slug} workflow={workflow} />
+      )}
 
       <section className="workflow-intro" aria-labelledby="workflow-title">
         <div className="workflow-product-lockup">
@@ -62,7 +70,7 @@ export default function ProductWorkflowPage() {
 
       <section className="workflow-timeline-section" aria-labelledby="timeline-title">
         <div className="workflow-section-heading">
-          <h2 id="timeline-title">Workflow map</h2>
+          <h2 id="timeline-title">WORKFLOW MAP</h2>
         </div>
 
         <WorkflowTimeline workflow={workflow} />

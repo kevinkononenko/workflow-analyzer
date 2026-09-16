@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@annotorious/annotorious": "^3.8.10",
+    "@annotorious/react": "^3.8.10",
     "lucide-react": "^1.46.0",
     "react": "^19.3.0",
     "react-chrono": "^3.3.3",
