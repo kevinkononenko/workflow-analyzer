@@ -38,16 +38,19 @@ export default function ProductWorkflowPage() {
         <div className="workflow-product-lockup">
           <ProductMark {...product} className="product-mark-large" />
           <div>
-            <p className="eyebrow">{product.productType}</p>
             <h1 id="workflow-title">{product.name}</h1>
+            <p className="workflow-card-description">{product.description}</p>
           </div>
         </div>
         <div className="workflow-summary">
-          <p>{product.description}</p>
           <dl>
             <div>
               <dt>Core user</dt>
               <dd>{product.persona}</dd>
+            </div>
+            <div>
+              <dt>Product type</dt>
+              <dd>{product.productType}</dd>
             </div>
             <div>
               <dt>Journey</dt>

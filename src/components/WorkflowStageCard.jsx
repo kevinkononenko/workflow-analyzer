@@ -34,6 +34,16 @@ export default function WorkflowStageCard({ stage, record }) {
             <span>KB screenshot</span>
           </div>
         )}
+        {record.screenshot.credit && (
+          <a
+            className="image-credit"
+            href={record.screenshot.creditUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Photo: {record.screenshot.credit}
+          </a>
+        )}
       </div>
 
       <div className="workflow-card-body">
@@ -45,7 +55,9 @@ export default function WorkflowStageCard({ stage, record }) {
           {record.description || "One-sentence workflow explanation to add."}
         </p>
 
-        {hasArticle ? (
+        {record.outsideProduct ? (
+          <span className="outside-product-note">This stage happens outside Jira</span>
+        ) : hasArticle ? (
           <a className="kb-link" href={record.article.url} target="_blank" rel="noreferrer">
             {record.article.title || "Read the knowledge base article"}
             <ExternalLink aria-hidden="true" size={15} />
