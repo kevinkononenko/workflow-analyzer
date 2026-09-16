@@ -41,6 +41,7 @@ export default function WorkflowTimeline({ workflow }) {
           cardWidth: 760,
           cardHeight: "auto",
           pointSize: 20,
+          timelineHeight: "auto",
           responsive: { enabled: true, breakpoint: 720 },
         }}
         interaction={{

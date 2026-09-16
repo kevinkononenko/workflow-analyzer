@@ -331,37 +331,37 @@ h1 {
 .workflow-intro {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 470px);
-  gap: 72px;
+  gap: 48px;
   align-items: center;
-  padding: 68px 0 70px;
+  padding: 38px 0 46px;
 }
 
 .workflow-product-lockup {
   display: flex;
-  gap: 24px;
+  gap: 18px;
   align-items: center;
 }
 
 .product-mark-large {
-  width: 82px;
-  height: 82px;
-  border-radius: 18px;
+  width: 64px;
+  height: 64px;
+  border-radius: 15px;
 }
 
 .product-mark-large svg {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
 }
 
 .workflow-product-lockup h1 {
-  font-size: clamp(3rem, 7vw, 6.4rem);
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
 }
 
 .workflow-card-description {
   max-width: 620px;
-  margin: 12px 0 0;
+  margin: 8px 0 0;
   color: #d6dae0;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   line-height: 1.5;
 }
 
@@ -395,42 +395,32 @@ h1 {
 }
 
 .workflow-section-heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 440px);
-  gap: 48px;
-  align-items: end;
+  display: block;
 }
 
 .workflow-section-heading h2 {
   max-width: 680px;
   margin: 0;
   color: #fff;
-  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-size: clamp(2rem, 3vw, 2.8rem);
   line-height: 1.02;
   letter-spacing: -0.055em;
 }
 
-.workflow-section-heading > p {
-  margin: 0 0 4px;
-  color: #a5abb3;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
 .timeline-shell {
   width: min(100%, 1040px);
-  margin-top: 38px;
+  margin-top: 28px;
   margin-right: auto;
   margin-left: auto;
-  overflow-x: clip;
-  padding: 28px 22px 34px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: rgba(12, 14, 17, 0.9);
+  overflow: visible;
 }
 
-.timeline-shell > div {
-  min-height: 0;
+.timeline-shell > div,
+.timeline-shell [data-timeline-wrapper],
+.timeline-shell .timeline-main-wrapper.vertical {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
 }
 
 .workflow-stage-card {
@@ -837,7 +827,7 @@ h1 {
   }
 
   .workflow-intro {
-    padding: 54px 0 56px;
+    padding: 34px 0 42px;
   }
 
   .workflow-product-lockup {
@@ -846,17 +836,17 @@ h1 {
   }
 
   .product-mark-large {
-    width: 62px;
-    height: 62px;
+    width: 54px;
+    height: 54px;
   }
 
   .product-mark-large svg {
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
   }
 
   .workflow-product-lockup h1 {
-    font-size: clamp(2.7rem, 14vw, 4.4rem);
+    font-size: clamp(2.4rem, 12vw, 3.7rem);
   }
 
   .workflow-card-description {
@@ -864,8 +854,7 @@ h1 {
   }
 
   .timeline-shell {
-    margin-top: 28px;
-    padding: 18px 10px 24px;
+    margin-top: 22px;
   }
 
   .card-meta > div {

@@ -62,13 +62,7 @@ export default function ProductWorkflowPage() {
 
       <section className="workflow-timeline-section" aria-labelledby="timeline-title">
         <div className="workflow-section-heading">
-          <div>
-            <p className="section-kicker">Workflow map</p>
-            <h2 id="timeline-title">Eight stages, one continuous job</h2>
-          </div>
-          <p>
-            Follow how features support the user from defining the work through concluding it.
-          </p>
+          <h2 id="timeline-title">Workflow map</h2>
         </div>
 
         <WorkflowTimeline workflow={workflow} />
