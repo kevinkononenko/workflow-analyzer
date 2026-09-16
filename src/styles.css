@@ -418,20 +418,23 @@ h1 {
 }
 
 .timeline-shell {
-  min-height: 720px;
+  width: min(100%, 1040px);
   margin-top: 38px;
-  overflow: hidden;
+  margin-right: auto;
+  margin-left: auto;
+  overflow-x: clip;
+  padding: 28px 22px 34px;
   border: 1px solid var(--line);
   border-radius: 16px;
   background: rgba(12, 14, 17, 0.9);
 }
 
 .timeline-shell > div {
-  min-height: 700px;
+  min-height: 0;
 }
 
 .workflow-stage-card {
-  min-height: 475px;
+  min-height: 0;
   overflow: hidden;
   border: 1px solid #2b3037;
   border-radius: 12px;
@@ -861,8 +864,8 @@ h1 {
   }
 
   .timeline-shell {
-    min-height: 760px;
     margin-top: 28px;
+    padding: 18px 10px 24px;
   }
 
   .card-meta > div {

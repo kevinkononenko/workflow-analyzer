@@ -34,15 +34,13 @@ export default function WorkflowTimeline({ workflow }) {
     <div className="timeline-shell" aria-label="Eight-stage product workflow">
       <Chrono
         items={items}
-        mode="horizontal-all"
+        mode="vertical"
         theme={timelineTheme}
         darkMode={{ enabled: true, showToggle: false }}
         layout={{
-          cardWidth: 292,
+          cardWidth: 760,
           cardHeight: "auto",
-          itemWidth: 316,
           pointSize: 20,
-          timelineHeight: 700,
           responsive: { enabled: true, breakpoint: 720 },
         }}
         interaction={{
@@ -55,7 +53,7 @@ export default function WorkflowTimeline({ workflow }) {
           borderless: true,
           allCardsVisible: true,
           toolbar: { enabled: false },
-          scrollable: { scrollbar: true },
+          scrollable: { scrollbar: false },
         }}
         content={{
           readMore: false,
