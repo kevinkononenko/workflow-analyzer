@@ -4,7 +4,7 @@ import ProductWorkflowPage from "./pages/ProductWorkflowPage";
 
 function App() {
   return (
-    <BrowserRouter basename="/workflow-inspector">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/:productSlug/" element={<ProductWorkflowPage />} />

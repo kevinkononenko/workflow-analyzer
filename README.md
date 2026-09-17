@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-The production build is configured for deployment at `/workflow-inspector/` on GitHub Pages.
+The production build is configured to serve Workflow Inspector from the site root (`/`).
 
 ## Adding workflow content
 
@@ -22,7 +22,7 @@ jira: {
     featureName: "Feature name",
     description: "One sentence explaining how the user applies it.",
     screenshot: {
-      src: "/workflow-inspector/screenshots/jira-define.png",
+      src: "/screenshots/jira-define.png",
       alt: "What the screenshot shows",
       objectPosition: "70% 35%",
       scale: 1.5,
@@ -71,7 +71,11 @@ Screenshots should make the flow feel like one continuous session in the current
 
 ## Feature relationship diagrams
 
-Each completed workflow can include a wide object-and-state diagram above the workflow map. Keep
+The complete authoring standard—including the object-versus-state decision rules, ERD field
+patterns, stage labels, relationship semantics, visual tokens, Eraser JSON examples, and review
+checklist—lives in [`diagrams/README.md`](diagrams/README.md).
+
+Every completed workflow includes a wide object-and-state diagram below the workflow map. Keep
 product concepts visually dominant, use the eight stage names as small contextual labels, and label
 connections with the result one object supplies to the next. Include meaningful feedback loops
 instead of forcing every relationship into a straight line.

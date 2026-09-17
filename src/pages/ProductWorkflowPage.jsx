@@ -71,8 +71,6 @@ export default function ProductWorkflowPage() {
         </div>
       </section>
 
-      <WorkflowFeatureDiagram diagram={featureDiagram} />
-
       <section className="workflow-timeline-section" aria-labelledby="timeline-title">
         <div className="workflow-section-heading">
           <h2 id="timeline-title">WORKFLOW MAP</h2>
@@ -80,6 +78,8 @@ export default function ProductWorkflowPage() {
 
         <WorkflowTimeline workflow={workflow} />
       </section>
+
+      <WorkflowFeatureDiagram diagram={featureDiagram} />
     </main>
   );
 }

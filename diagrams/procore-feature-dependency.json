@@ -1,226 +1,328 @@
 {
   "entities": [
     {
+      "tag": "Shape", "id": "originating-item", "shape": "rectangle",
+      "x": 30, "y": 190, "width": 250, "height": 58,
+      "bgColor": "#f1f3f5", "borderColor": "#89919c", "borderWidth": 1,
+      "borderStyle": "dashed", "cornerRadius": "round", "styleMode": "plain",
+      "texts": [
+        { "text": "OPTIONAL ORIGIN", "fontSize": 12, "color": "#59626d", "typeface": "mono" },
+        { "text": "RFI · Observation · T&M · manual entry", "fontSize": 14, "color": "#20242a", "typeface": "clean" }
+      ]
+    },
+    {
       "tag": "Group", "id": "change-event-object",
-      "x": 30, "y": 90, "width": 250, "height": 255,
+      "x": 30, "y": 340, "width": 250, "height": 180,
       "bgColor": "#11151a", "borderColor": "#5f9dff", "borderWidth": 2,
       "cornerRadius": "round", "styleMode": "plain",
       "title": {
         "text": "Change Event", "icon": "alert-circle",
-        "iconProps": { "color": "#5f9dff", "size": "md" },
+        "iconProps": { "color": "#5f9dff", "size": "lg" },
         "width": "full", "bgColor": "#172234", "color": "#f5f7fa",
         "fontSize": 17, "typeface": "clean", "hAlign": "left"
       }
     },
     {
       "tag": "Shape", "id": "change-event-open", "containerId": "change-event-object",
-      "shape": "rectangle", "x": 55, "y": 160, "width": 200, "height": 58,
-      "bgColor": "#1a2028", "borderColor": "#5f9dff", "borderWidth": 1,
+      "shape": "rectangle", "x": 50, "y": 415, "width": 90, "height": 58,
+      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
       "cornerRadius": "round", "styleMode": "plain",
-      "texts": [
-        { "text": "DEFINE · LOCATE", "fontSize": 10, "color": "#8ab8ff", "typeface": "mono" },
-        { "text": "**Open**", "fontSize": 16, "color": "#f5f7fa", "typeface": "clean" }
-      ]
+      "texts": []
     },
     {
-      "tag": "Textbox", "id": "change-event-fields", "containerId": "change-event-object",
-      "x": 55, "y": 245, "width": 200, "height": 70,
-      "text": "**References**\nCommitment + cost code", "fontSize": 13,
-      "color": "#b9c0ca", "typeface": "clean", "hAlign": "left", "fixedWidth": true
+      "tag": "Textbox", "id": "change-event-later", "containerId": "change-event-object",
+      "x": 142, "y": 431, "width": 28, "height": 24,
+      "text": "→", "fontSize": 16,
+      "color": "#7f8792", "typeface": "mono", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "change-event-closed", "containerId": "change-event-object",
+      "shape": "rectangle", "x": 170, "y": 415, "width": 90, "height": 58,
+      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
+      "cornerRadius": "round", "styleMode": "plain",
+      "texts": [
+        { "text": "Closed", "fontSize": 16, "color": "#ffffff", "typeface": "clean" }
+      ]
     },
 
     {
       "tag": "Group", "id": "rfq-object",
-      "x": 330, "y": 55, "width": 315, "height": 325,
+      "x": 400, "y": 340, "width": 315, "height": 250,
       "bgColor": "#11151a", "borderColor": "#dfff2f", "borderWidth": 2,
       "cornerRadius": "round", "styleMode": "plain",
       "title": {
         "text": "Request for Quote", "icon": "send",
-        "iconProps": { "color": "#dfff2f", "size": "md" },
+        "iconProps": { "color": "#dfff2f", "size": "lg" },
         "width": "full", "bgColor": "#20270f", "color": "#f5f7fa",
         "fontSize": 17, "typeface": "clean", "hAlign": "left"
       }
     },
     {
       "tag": "Shape", "id": "rfq-out", "containerId": "rfq-object",
-      "shape": "rectangle", "x": 355, "y": 125, "width": 125, "height": 58,
+      "shape": "rectangle", "x": 425, "y": 410, "width": 125, "height": 58,
       "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
       "cornerRadius": "round", "styleMode": "plain",
-      "texts": [
-        { "text": "PREPARE", "fontSize": 10, "color": "#dfff2f", "typeface": "mono" },
-        { "text": "**Out for Pricing**", "fontSize": 14, "color": "#f5f7fa", "typeface": "clean" }
-      ]
+      "texts": []
     },
     {
       "tag": "Shape", "id": "rfq-review", "containerId": "rfq-object",
-      "shape": "rectangle", "x": 500, "y": 125, "width": 120, "height": 58,
+      "shape": "rectangle", "x": 570, "y": 410, "width": 120, "height": 58,
       "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
       "cornerRadius": "round", "styleMode": "plain",
-      "texts": [
-        { "text": "CONFIRM", "fontSize": 10, "color": "#dfff2f", "typeface": "mono" },
-        { "text": "**Under Review**", "fontSize": 14, "color": "#f5f7fa", "typeface": "clean" }
-      ]
+      "texts": []
     },
     {
       "tag": "Shape", "id": "rfq-final", "containerId": "rfq-object",
-      "shape": "rectangle", "x": 398, "y": 220, "width": 180, "height": 62,
-      "bgColor": "#dfff2f", "borderColor": "#dfff2f", "borderWidth": 1,
+      "shape": "rectangle", "x": 468, "y": 505, "width": 180, "height": 62,
+      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
       "cornerRadius": "round", "styleMode": "plain",
       "texts": [
-        { "text": "**Pending Final Approval**", "fontSize": 14, "color": "#11151a", "typeface": "clean" },
-        { "text": "RFQ response amount", "fontSize": 11, "color": "#293000", "typeface": "clean" }
+        { "text": "Pending Final Approval", "fontSize": 14, "color": "#f5f7fa", "typeface": "clean" }
       ]
-    },
-    {
-      "tag": "Textbox", "id": "rfq-response-field", "containerId": "rfq-object",
-      "x": 355, "y": 310, "width": 265, "height": 42,
-      "text": "Response is data on the RFQ—not a separate object.", "fontSize": 11,
-      "color": "#9fa7b2", "typeface": "clean", "hAlign": "center", "fixedWidth": true
     },
 
     {
       "tag": "Group", "id": "cco-object",
-      "x": 700, "y": 25, "width": 465, "height": 390,
+      "x": 900, "y": 340, "width": 465, "height": 270,
       "bgColor": "#11151a", "borderColor": "#ffb84d", "borderWidth": 2,
       "cornerRadius": "round", "styleMode": "plain",
       "title": {
         "text": "Commitment Change Order", "icon": "file-plus",
-        "iconProps": { "color": "#ffb84d", "size": "md" },
+        "iconProps": { "color": "#ffb84d", "size": "lg" },
         "width": "full", "bgColor": "#2a2014", "color": "#f5f7fa",
         "fontSize": 17, "typeface": "clean", "hAlign": "left"
       }
     },
     {
       "tag": "Shape", "id": "cco-review", "containerId": "cco-object",
-      "shape": "rectangle", "x": 730, "y": 105, "width": 180, "height": 68,
-      "bgColor": "#ffb84d", "borderColor": "#ffb84d", "borderWidth": 1,
+      "shape": "rectangle", "x": 930, "y": 420, "width": 180, "height": 68,
+      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
       "cornerRadius": "round", "styleMode": "plain",
-      "texts": [
-        { "text": "EXECUTE · MONITOR", "fontSize": 10, "color": "#4a2b00", "typeface": "mono" },
-        { "text": "**Pending - In Review**", "fontSize": 15, "color": "#17120b", "typeface": "clean" }
-      ]
+      "texts": []
     },
     {
       "tag": "Shape", "id": "cco-approved", "containerId": "cco-object",
-      "shape": "rectangle", "x": 950, "y": 100, "width": 180, "height": 58,
-      "bgColor": "#dfff2f", "borderColor": "#dfff2f", "borderWidth": 1,
+      "shape": "rectangle", "x": 1150, "y": 415, "width": 180, "height": 58,
+      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
       "cornerRadius": "round", "styleMode": "plain",
-      "texts": [
-        { "text": "CONCLUDE", "fontSize": 10, "color": "#344000", "typeface": "mono" },
-        { "text": "**Approved**", "fontSize": 15, "color": "#141900", "typeface": "clean" }
-      ]
+      "texts": []
     },
     {
       "tag": "Shape", "id": "cco-rejected", "containerId": "cco-object",
-      "shape": "rectangle", "x": 730, "y": 220, "width": 145, "height": 58,
-      "bgColor": "#1a2028", "borderColor": "#ff7b72", "borderWidth": 1,
+      "shape": "rectangle", "x": 930, "y": 535, "width": 145, "height": 58,
+      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
       "cornerRadius": "round", "styleMode": "plain",
       "texts": [
-        { "text": "**Rejected**", "fontSize": 15, "color": "#ff9c95", "typeface": "clean" }
+        { "text": "Rejected", "fontSize": 15, "color": "#f5f7fa", "typeface": "clean" }
       ]
     },
     {
       "tag": "Shape", "id": "cco-revised", "containerId": "cco-object",
-      "shape": "rectangle", "x": 950, "y": 220, "width": 180, "height": 58,
-      "bgColor": "#1a2028", "borderColor": "#ffb84d", "borderWidth": 1,
+      "shape": "rectangle", "x": 1150, "y": 535, "width": 180, "height": 58,
+      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
       "cornerRadius": "round", "styleMode": "plain",
-      "texts": [
-        { "text": "MODIFY", "fontSize": 10, "color": "#ffb84d", "typeface": "mono" },
-        { "text": "**Pending - Revised**", "fontSize": 15, "color": "#f5f7fa", "typeface": "clean" }
-      ]
+      "texts": []
     },
-    {
-      "tag": "Textbox", "id": "cco-fields", "containerId": "cco-object",
-      "x": 730, "y": 315, "width": 400, "height": 62,
-      "text": "**Fields on this object**  ·  Designated Reviewer  ·  Revision #\nRejected → revise & resubmit → Pending - Revised → back to review.",
-      "fontSize": 12, "color": "#b9c0ca", "typeface": "clean", "hAlign": "left", "fixedWidth": true
-    },
-
     {
       "tag": "Group", "id": "commitment-object",
-      "x": 1215, "y": 90, "width": 285, "height": 255,
+      "x": 700, "y": 10, "width": 520, "height": 230,
       "bgColor": "#11151a", "borderColor": "#5f9dff", "borderWidth": 2,
       "cornerRadius": "round", "styleMode": "plain",
       "title": {
         "text": "Commitment / Purchase Order", "icon": "file-check",
-        "iconProps": { "color": "#5f9dff", "size": "md" },
+        "iconProps": { "color": "#5f9dff", "size": "lg" },
         "width": "full", "bgColor": "#172234", "color": "#f5f7fa",
         "fontSize": 16, "typeface": "clean", "hAlign": "left"
       }
     },
     {
-      "tag": "Shape", "id": "original-contract", "containerId": "commitment-object",
-      "shape": "rectangle", "x": 1245, "y": 165, "width": 225, "height": 48,
-      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
-      "cornerRadius": "round", "styleMode": "plain",
-      "texts": [
-        { "text": "**Original Contract**", "fontSize": 14, "color": "#f5f7fa", "typeface": "clean" }
-      ]
+      "tag": "Shape", "id": "commitment-row-id", "containerId": "commitment-object",
+      "shape": "rectangle", "x": 702, "y": 75, "width": 516, "height": 41,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
     },
     {
-      "tag": "Shape", "id": "approved-changes", "containerId": "commitment-object",
-      "shape": "rectangle", "x": 1245, "y": 230, "width": 225, "height": 48,
-      "bgColor": "#1a2028", "borderColor": "#dfff2f", "borderWidth": 1,
-      "cornerRadius": "round", "styleMode": "plain",
-      "texts": [
-        { "text": "**Approved Change Orders**", "fontSize": 14, "color": "#dfff2f", "typeface": "clean" }
-      ]
+      "tag": "Textbox", "id": "commitment-id", "containerId": "commitment-object",
+      "x": 720, "y": 85, "width": 480, "height": 22,
+      "text": "commitment_id", "fontSize": 14,
+      "color": "#f5f7fa", "typeface": "mono", "hAlign": "left", "fixedWidth": true
     },
     {
-      "tag": "Shape", "id": "revised-contract", "containerId": "commitment-object",
-      "shape": "rectangle", "x": 1245, "y": 295, "width": 225, "height": 48,
-      "bgColor": "#dfff2f", "borderColor": "#dfff2f", "borderWidth": 1,
-      "cornerRadius": "round", "styleMode": "plain",
-      "texts": [
-        { "text": "= **Revised Contract**", "fontSize": 14, "color": "#141900", "typeface": "clean" }
-      ]
+      "tag": "Shape", "id": "commitment-row-original", "containerId": "commitment-object",
+      "shape": "rectangle", "x": 702, "y": 116, "width": 516, "height": 41,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "original-contract", "containerId": "commitment-object",
+      "x": 720, "y": 126, "width": 480, "height": 22,
+      "text": "original_contract_amount", "fontSize": 14,
+      "color": "#f5f7fa", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "commitment-row-changes", "containerId": "commitment-object",
+      "shape": "rectangle", "x": 702, "y": 157, "width": 516, "height": 41,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "approved-changes", "containerId": "commitment-object",
+      "x": 720, "y": 167, "width": 480, "height": 22,
+      "text": "approved_change_orders[]", "fontSize": 14,
+      "color": "#dfff2f", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "commitment-row-revised", "containerId": "commitment-object",
+      "shape": "rectangle", "x": 702, "y": 198, "width": 516, "height": 40,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "revised-contract", "containerId": "commitment-object",
+      "x": 720, "y": 208, "width": 480, "height": 22,
+      "text": "revised_contract_amount", "fontSize": 14,
+      "color": "#dfff2f", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "change-event-open-stage", "containerId": "change-event-object",
+      "x": 50, "y": 426, "width": 90, "height": 18,
+      "text": "DEFINE", "fontSize": 12, "color": "#b9c0ca", "typeface": "mono", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "change-event-open-name", "containerId": "change-event-object",
+      "x": 50, "y": 447, "width": 90, "height": 22,
+      "text": "Open", "fontSize": 16, "color": "#ffffff", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "rfq-out-stage", "containerId": "rfq-object",
+      "x": 425, "y": 421, "width": 125, "height": 18,
+      "text": "PREPARE", "fontSize": 12, "color": "#b9c0ca", "typeface": "mono", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "rfq-out-name", "containerId": "rfq-object",
+      "x": 425, "y": 442, "width": 125, "height": 22,
+      "text": "Out for Pricing", "fontSize": 14, "color": "#ffffff", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "rfq-review-stage", "containerId": "rfq-object",
+      "x": 570, "y": 421, "width": 120, "height": 18,
+      "text": "CONFIRM", "fontSize": 12, "color": "#b9c0ca", "typeface": "mono", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "rfq-review-name", "containerId": "rfq-object",
+      "x": 570, "y": 442, "width": 120, "height": 22,
+      "text": "Under Review", "fontSize": 14, "color": "#ffffff", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "cco-review-stage", "containerId": "cco-object",
+      "x": 930, "y": 433, "width": 180, "height": 18,
+      "text": "EXECUTE · MONITOR", "fontSize": 12, "color": "#b9c0ca", "typeface": "mono", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "cco-review-name", "containerId": "cco-object",
+      "x": 930, "y": 456, "width": 180, "height": 22,
+      "text": "Pending - In Review", "fontSize": 15, "color": "#ffffff", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "cco-approved-stage", "containerId": "cco-object",
+      "x": 1150, "y": 426, "width": 180, "height": 18,
+      "text": "CONCLUDE", "fontSize": 12, "color": "#b9c0ca", "typeface": "mono", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "cco-approved-name", "containerId": "cco-object",
+      "x": 1150, "y": 447, "width": 180, "height": 22,
+      "text": "Approved", "fontSize": 15, "color": "#ffffff", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "cco-revised-stage", "containerId": "cco-object",
+      "x": 1150, "y": 546, "width": 180, "height": 18,
+      "text": "MODIFY", "fontSize": 12, "color": "#b9c0ca", "typeface": "mono", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "cco-revised-name", "containerId": "cco-object",
+      "x": 1150, "y": 567, "width": 180, "height": 22,
+      "text": "Pending - Revised", "fontSize": 15, "color": "#ffffff", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "creates-rfq-label",
+      "x": 295, "y": 405, "width": 105, "height": 24,
+      "text": "creates RFQ", "fontSize": 11,
+      "color": "#cbd1d8", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "creates-cco-label",
+      "x": 718, "y": 445, "width": 184, "height": 36,
+      "text": "accepted RFQ amount\npopulates CCO SOV", "fontSize": 11,
+      "color": "#cbd1d8", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "rfq-commitment-label",
+      "x": 468, "y": 48, "width": 222, "height": 36,
+      "text": "references selected commitment\nfor vendor / contract context", "fontSize": 11,
+      "color": "#cbd1d8", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "cco-commitment-label",
+      "x": 820, "y": 269, "width": 230, "height": 36,
+      "text": "approved CCO is added\nto the commitment", "fontSize": 11,
+      "color": "#cbd1d8", "typeface": "clean", "hAlign": "center", "fixedWidth": true
     }
   ],
   "connections": [
     {
-      "from": "change-event-open", "to": "rfq-out", "label": "creates RFQ",
-      "color": "#a8c900", "lineWidth": 3, "fontSize": 12, "typeface": "clean",
-      "fromPort": "right", "toPort": "left"
+      "from": "originating-item", "to": "change-event-object",
+      "color": "#7b8490", "lineStyle": "dashed", "lineWidth": 0.75, "fontSize": 10, "typeface": "clean",
+      "fromPort": "bottom", "toPort": "top", "endArrowhead": "arrow"
+    },
+    {
+      "from": "change-event-object", "to": "rfq-object",
+      "color": "#a8c900", "lineWidth": 1, "fontSize": 12, "typeface": "clean",
+      "fromPort": "right", "toPort": "left", "endArrowhead": "arrow"
     },
     {
       "from": "rfq-out", "to": "rfq-review",
-      "color": "#a8c900", "lineWidth": 2, "fontSize": 10, "typeface": "clean",
-      "fromPort": "right", "toPort": "left"
+      "color": "#8f98a4", "lineWidth": 0.75, "fontSize": 10, "typeface": "clean",
+      "fromPort": "right", "toPort": "left", "endArrowhead": "arrow"
     },
     {
       "from": "rfq-review", "to": "rfq-final",
-      "color": "#a8c900", "lineWidth": 2, "fontSize": 10, "typeface": "clean",
-      "fromPort": "bottom", "toPort": "top"
+      "color": "#8f98a4", "lineWidth": 0.75, "fontSize": 10, "typeface": "clean",
+      "fromPort": "bottom", "toPort": "top", "endArrowhead": "arrow"
     },
     {
-      "from": "rfq-final", "to": "cco-review", "label": "populates schedule of values",
-      "color": "#a8c900", "lineWidth": 3, "fontSize": 12, "typeface": "clean",
-      "fromPort": "right", "toPort": "left"
+      "from": "rfq-object", "to": "cco-object",
+      "color": "#a8c900", "lineWidth": 1, "fontSize": 12, "typeface": "clean",
+      "fromPort": "right", "toPort": "left", "endArrowhead": "arrow"
+    },
+    {
+      "from": "rfq-object", "to": "commitment-row-id",
+      "color": "#5f9dff", "lineStyle": "dashed", "lineWidth": 0.75, "fontSize": 10, "typeface": "clean",
+      "fromPort": "top", "toPort": "left", "endArrowhead": "arrow"
     },
     {
       "from": "cco-review", "to": "cco-approved",
-      "color": "#a8c900", "lineWidth": 2, "fontSize": 11, "typeface": "clean",
-      "fromPort": "right", "toPort": "left"
+      "color": "#8f98a4", "lineWidth": 0.75, "fontSize": 11, "typeface": "clean",
+      "fromPort": "right", "toPort": "left", "endArrowhead": "arrow"
     },
     {
       "from": "cco-review", "to": "cco-rejected",
-      "color": "#ff7b72", "lineWidth": 2, "fontSize": 11, "typeface": "clean",
-      "fromPort": "bottom", "toPort": "top"
+      "color": "#8f98a4", "lineWidth": 0.75, "fontSize": 11, "typeface": "clean",
+      "fromPort": "bottom", "toPort": "top", "endArrowhead": "arrow"
     },
     {
       "from": "cco-rejected", "to": "cco-revised",
-      "color": "#ffb84d", "lineWidth": 2, "fontSize": 11, "typeface": "clean",
-      "fromPort": "right", "toPort": "left"
+      "color": "#8f98a4", "lineWidth": 0.75, "fontSize": 11, "typeface": "clean",
+      "fromPort": "right", "toPort": "left", "endArrowhead": "arrow"
     },
     {
       "from": "cco-revised", "to": "cco-review",
-      "color": "#ffb84d", "lineStyle": "dashed", "lineWidth": 2, "fontSize": 10, "typeface": "clean",
-      "fromPort": "top", "toPort": "bottom"
+      "color": "#8f98a4", "lineStyle": "dashed", "lineWidth": 0.75, "fontSize": 10, "typeface": "clean",
+      "fromPort": "top", "toPort": "bottom", "endArrowhead": "arrow"
     },
     {
-      "from": "cco-approved", "to": "approved-changes",
-      "color": "#a8c900", "lineWidth": 3, "fontSize": 12, "typeface": "clean",
-      "fromPort": "right", "toPort": "left"
+      "from": "cco-object", "to": "commitment-row-changes",
+      "color": "#a8c900", "lineWidth": 0.75, "fontSize": 12, "typeface": "clean",
+      "fromPort": "top", "toPort": "left", "endArrowhead": "arrow"
     }
   ]
 }

@@ -20,7 +20,7 @@ export default function HomePage() {
 
       <section className="catalog" aria-labelledby="catalog-title">
         <div className="catalog-heading">
-          <h2 id="catalog-title">Products</h2>
+          <h2 id="catalog-title">Workflows</h2>
           <span>Choose a starting point</span>
         </div>
 
@@ -38,9 +38,12 @@ export default function HomePage() {
                 <span className="card-code">{product.code}</span>
               </div>
               <div className="card-copy">
-                <h3>{product.name}</h3>
-                <p>{product.description}</p>
+                <h3>{product.description}</h3>
                 <dl className="card-meta">
+                  <div>
+                    <dt>Product</dt>
+                    <dd>{product.name}</dd>
+                  </div>
                   <div>
                     <dt>Persona</dt>
                     <dd>{product.persona}</dd>
