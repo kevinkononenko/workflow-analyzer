@@ -60,7 +60,7 @@ export default function WorkflowTimeline({ workflow }) {
         interaction={{
           keyboardNavigation: true,
           pointClick: true,
-          autoScroll: true,
+          autoScroll: false,
           focusOnLoad: false,
         }}
         display={{

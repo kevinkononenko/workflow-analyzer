@@ -1,33 +1,22 @@
 import { useState } from "react";
 import { ClipboardCheck, Trash2 } from "lucide-react";
-
-function parseSavedValue(key, fallback) {
-  try {
-    const value = localStorage.getItem(key);
-    return value === null ? fallback : JSON.parse(value);
-  } catch {
-    return fallback;
-  }
-}
+import { getSessionCalibration } from "../data/annotationSession";
 
 export default function AnnotationSessionToolbar({ productSlug, workflow }) {
-  const [status, setStatus] = useState("Changes autosave while you work");
+  const [status, setStatus] = useState("Edits last until refresh unless exported");
 
   const saveAllCoordinates = async () => {
     const stages = Object.fromEntries(
       workflow
         .filter((record) => !record.outsideProduct && record.screenshot.src)
         .map((record) => {
-          const screenshotKey = record.screenshot.annotationKey ?? record.screenshot.src;
-          const annotationKey = `workflow-inspector:annotations:${record.id}:${screenshotKey}`;
-          const zoomKey = `workflow-inspector:zoom:${record.id}:${screenshotKey}`;
-          const storedZoom = Number(localStorage.getItem(zoomKey));
+          const session = getSessionCalibration(record.id);
 
           return [
             record.stageId,
             {
-              zoom: Number.isFinite(storedZoom) && storedZoom >= 1 ? storedZoom : 1,
-              highlights: parseSavedValue(annotationKey, record.screenshot.highlights),
+              zoom: session?.zoom ?? record.screenshot.scale,
+              highlights: session?.highlights ?? record.screenshot.highlights,
             },
           ];
         }),
@@ -40,30 +29,17 @@ export default function AnnotationSessionToolbar({ productSlug, workflow }) {
     };
     const serialized = JSON.stringify(exportData, null, 2);
 
-    localStorage.setItem(
-      `workflow-inspector:calibration-export:${productSlug}`,
-      serialized,
-    );
-
     try {
       await navigator.clipboard.writeText(serialized);
-      setStatus(`${Object.keys(stages).length} screenshots saved and copied`);
+      setStatus(`${Object.keys(stages).length} screenshots exported and copied`);
     } catch {
-      setStatus(`${Object.keys(stages).length} screenshots saved in this browser`);
+      setStatus("Could not copy the calibration JSON");
     }
   };
 
   const clearAllBoxes = () => {
-    workflow
-      .filter((record) => !record.outsideProduct && record.screenshot.src)
-      .forEach((record) => {
-        const screenshotKey = record.screenshot.annotationKey ?? record.screenshot.src;
-        const annotationKey = `workflow-inspector:annotations:${record.id}:${screenshotKey}`;
-        localStorage.setItem(annotationKey, "[]");
-      });
-
     window.dispatchEvent(new CustomEvent("workflow-inspector:clear-all-annotations"));
-    setStatus("All screenshot boxes cleared");
+    setStatus("All boxes cleared for this session");
   };
 
   return (

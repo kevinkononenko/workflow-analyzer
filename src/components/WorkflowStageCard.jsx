@@ -26,7 +26,13 @@ export default function WorkflowStageCard({
         </header>
 
         {!record.outsideProduct && (
-          <div className="workflow-screenshot">
+          <div
+            className="workflow-screenshot"
+            onPointerDown={(event) => event.stopPropagation()}
+            onPointerUp={(event) => event.stopPropagation()}
+            onClick={(event) => event.stopPropagation()}
+            onDoubleClick={(event) => event.stopPropagation()}
+          >
             {hasScreenshot ? (
               <AnnotatedScreenshot
                 screenshot={record.screenshot}

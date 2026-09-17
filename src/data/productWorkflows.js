@@ -13,7 +13,7 @@ export const workflowContent = {
       screenshot: {
         src: "https://wac-cdn.atlassian.com/dam/jcr%3A9c540103-16c2-4875-b579-1deee54101d1/Screen-kanban%20board.png?cdnVersion=3672",
         alt: "Full Jira Kanban board with work items arranged across workflow columns",
-        annotationKey: "jira-define-clean-v3",
+        annotationKey: "jira-define-calibrated-v1",
         objectPosition: "35% 55%",
         scale: 1,
         focusLabel: "High priority + not started",
@@ -41,7 +41,7 @@ export const workflowContent = {
       screenshot: {
         src: "https://images.ctfassets.net/zsv3d0ugroxu/7nmdn9lSPi6iCFYKFi9a7/a1c847870ad9cc235b23a9926aa43799/screenshot_IssueDetails.png",
         alt: "Jira work item view showing its description and contextual fields",
-        annotationKey: "jira-locate-clean-v1",
+        annotationKey: "jira-locate-calibrated-v1",
         objectPosition: "52% 44%",
         scale: 1,
         focusLabel: "Work item details",
@@ -93,7 +93,7 @@ export const workflowContent = {
       screenshot: {
         src: "https://images.ctfassets.net/zsv3d0ugroxu/1WrWWQOxvQpaoLlHTDpyO5/dce56463e124a7008c4ca3759893b5da/Screenshot_2025-04-15_at_10.46.31_AM.png",
         alt: "Jira status menu showing In progress and Done options",
-        annotationKey: "jira-execute-clean-v1",
+        annotationKey: "jira-execute-calibrated-v1",
         objectPosition: "75% 22%",
         scale: 1,
         focusLabel: "In progress status",
@@ -119,7 +119,7 @@ export const workflowContent = {
       screenshot: {
         src: "https://images.ctfassets.net/zsv3d0ugroxu/7nmdn9lSPi6iCFYKFi9a7/a1c847870ad9cc235b23a9926aa43799/screenshot_IssueDetails.png",
         alt: "Jira work item view with details and activity",
-        annotationKey: "jira-monitor-clean-v1",
+        annotationKey: "jira-monitor-calibrated-v1",
         objectPosition: "38% 78%",
         scale: 1.1,
         focusLabel: "Comments and activity",
@@ -158,7 +158,7 @@ export const workflowContent = {
       screenshot: {
         src: "https://images.ctfassets.net/zsv3d0ugroxu/1WrWWQOxvQpaoLlHTDpyO5/dce56463e124a7008c4ca3759893b5da/Screenshot_2025-04-15_at_10.46.31_AM.png",
         alt: "Jira status menu showing the Done option",
-        annotationKey: "jira-conclude-clean-v1",
+        annotationKey: "jira-conclude-calibrated-v1",
         objectPosition: "75% 72%",
         scale: 1,
         focusLabel: "Done status",

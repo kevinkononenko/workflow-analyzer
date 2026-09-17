@@ -6,6 +6,7 @@ import {
   useAnnotator,
 } from "@annotorious/react";
 import "@annotorious/react/annotorious-react.css";
+import { updateSessionCalibration } from "../data/annotationSession";
 
 const annotationStyle = {
   fill: "#e7ff56",
@@ -58,18 +59,9 @@ function toHighlight(annotation, image) {
   };
 }
 
-function readSavedHighlights(storageKey) {
-  try {
-    const saved = localStorage.getItem(storageKey);
-    return saved ? JSON.parse(saved) : null;
-  } catch {
-    return null;
-  }
-}
-
 function AnnotationController({
   highlights,
-  storageKey,
+  annotationId,
   editing,
   zoom,
   onZoomChange,
@@ -83,8 +75,7 @@ function AnnotationController({
     const image = annotator.element.querySelector("img");
     if (!image?.naturalWidth || !image?.naturalHeight) return;
 
-    const savedHighlights = readSavedHighlights(storageKey);
-    const annotations = (savedHighlights ?? highlights).map((highlight) =>
+    const annotations = highlights.map((highlight) =>
       toAnnotation(highlight, image),
     );
 
@@ -96,8 +87,8 @@ function AnnotationController({
       const normalized = annotator
         .getAnnotations()
         .map((annotation) => toHighlight(annotation, image));
-      localStorage.setItem(storageKey, JSON.stringify(normalized));
-      setStatus(`Saved ${normalized.length} region${normalized.length === 1 ? "" : "s"}`);
+      updateSessionCalibration(annotationId, { highlights: normalized });
+      setStatus(`${normalized.length} region${normalized.length === 1 ? "" : "s"} in this session`);
     };
 
     annotator.on("createAnnotation", save);
@@ -106,8 +97,8 @@ function AnnotationController({
 
     const clearAll = () => {
       annotator.clearAnnotations();
-      localStorage.setItem(storageKey, "[]");
-      setStatus("Cleared");
+      updateSessionCalibration(annotationId, { highlights: [] });
+      setStatus("Cleared for this session");
     };
     window.addEventListener("workflow-inspector:clear-all-annotations", clearAll);
 
@@ -117,7 +108,7 @@ function AnnotationController({
       annotator.off("deleteAnnotation", save);
       window.removeEventListener("workflow-inspector:clear-all-annotations", clearAll);
     };
-  }, [annotator, editing, highlights, storageKey]);
+  }, [annotator, annotationId, editing, highlights]);
 
   if (!editing || !annotator) return null;
 
@@ -126,15 +117,15 @@ function AnnotationController({
   const reset = () => {
     const image = getImage();
     if (!image) return;
-    localStorage.removeItem(storageKey);
     annotator.setAnnotations(highlights.map((highlight) => toAnnotation(highlight, image)));
-    setStatus("Reset to defaults");
+    updateSessionCalibration(annotationId, { highlights });
+    setStatus("Reset to stored defaults");
   };
 
   const clear = () => {
     annotator.clearAnnotations();
-    localStorage.setItem(storageKey, "[]");
-    setStatus("Cleared");
+    updateSessionCalibration(annotationId, { highlights: [] });
+    setStatus("Cleared for this session");
   };
 
   const deleteSelected = () => {
@@ -195,26 +186,20 @@ export default function AnnotatedScreenshot({
     if (!import.meta.env.DEV) return false;
     return new URLSearchParams(window.location.search).get("annotate") === "1";
   }, []);
-  const screenshotKey = screenshot.annotationKey ?? screenshot.src;
-  const storageKey = `workflow-inspector:annotations:${annotationId}:${screenshotKey}`;
-  const zoomStorageKey = `workflow-inspector:zoom:${annotationId}:${screenshotKey}`;
-  const [zoom, setZoom] = useState(() => {
-    const saved = Number(localStorage.getItem(zoomStorageKey));
-    return Number.isFinite(saved) && saved >= 1 ? saved : screenshot.scale;
-  });
+  const [zoom, setZoom] = useState(screenshot.scale);
 
   const updateZoom = (nextZoom) => {
     const clamped = Math.min(2.5, Math.max(1, nextZoom));
     const rounded = Math.round(clamped * 20) / 20;
     setZoom(rounded);
-    localStorage.setItem(zoomStorageKey, String(rounded));
+    updateSessionCalibration(annotationId, { zoom: rounded });
   };
 
   return (
     <Annotorious>
       <AnnotationController
         highlights={screenshot.highlights}
-        storageKey={storageKey}
+        annotationId={annotationId}
         editing={editing}
         zoom={zoom}
         onZoomChange={updateZoom}
@@ -236,6 +221,7 @@ export default function AnnotatedScreenshot({
             className="workflow-screenshot-image"
             src={screenshot.src}
             alt={screenshot.alt}
+            draggable="false"
           />
         </ImageAnnotator>
       </div>
