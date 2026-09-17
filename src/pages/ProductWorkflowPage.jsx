@@ -4,7 +4,9 @@ import { ArrowLeft } from "lucide-react";
 import AnnotationSessionToolbar from "../components/AnnotationSessionToolbar";
 import ProductMark from "../components/ProductMark";
 import SiteHeader from "../components/SiteHeader";
+import WorkflowFeatureDiagram from "../components/WorkflowFeatureDiagram";
 import WorkflowTimeline from "../components/WorkflowTimeline";
+import { getProductDiagram } from "../data/productDiagrams";
 import { findProductBySlug } from "../data/products";
 import { getProductWorkflow } from "../data/productWorkflows";
 
@@ -25,6 +27,7 @@ export default function ProductWorkflowPage() {
   if (!product) return <Navigate to="/" replace />;
 
   const workflow = getProductWorkflow(product.slug);
+  const featureDiagram = getProductDiagram(product.slug);
   const annotationMode =
     import.meta.env.DEV &&
     new URLSearchParams(window.location.search).get("annotate") === "1";
@@ -62,11 +65,13 @@ export default function ProductWorkflowPage() {
             </div>
             <div>
               <dt>Journey</dt>
-              <dd>8 stages</dd>
+              <dd>{product.journey ?? "8 stages"}</dd>
             </div>
           </dl>
         </div>
       </section>
+
+      <WorkflowFeatureDiagram diagram={featureDiagram} />
 
       <section className="workflow-timeline-section" aria-labelledby="timeline-title">
         <div className="workflow-section-heading">

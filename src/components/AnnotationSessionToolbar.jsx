@@ -16,6 +16,8 @@ export default function AnnotationSessionToolbar({ productSlug, workflow }) {
             record.stageId,
             {
               zoom: session?.zoom ?? record.screenshot.scale,
+              panX: session?.panX ?? record.screenshot.panX,
+              panY: session?.panY ?? record.screenshot.panY,
               highlights: session?.highlights ?? record.screenshot.highlights,
             },
           ];

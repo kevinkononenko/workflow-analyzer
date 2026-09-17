@@ -1,5 +1,13 @@
 import { products } from "./products";
 import { workflowStages } from "./workflowStages";
+import procoreDefineChangeEvent from "../assets/procore/flow-define-change-event-2025.png";
+import procoreLocateCommitment from "../assets/procore/flow-locate-commitment-2025.png";
+import procorePrepareEvidence from "../assets/procore/flow-prepare-evidence-2025.png";
+import procoreConfirmField from "../assets/procore/flow-confirm-field-2025.png";
+import procoreExecuteChangeOrder from "../assets/procore/flow-execute-change-order-2025.png";
+import procoreMonitorApproval from "../assets/procore/flow-monitor-approval-2025.png";
+import procoreModifyChangeOrder from "../assets/procore/flow-modify-change-order-2025.png";
+import procoreConcludeBudget from "../assets/procore/flow-conclude-budget-2025.png";
 
 // Add supplied content here, one product and stage at a time. Every field is optional
 // while drafting; only complete records appear in the homepage stage explorer.
@@ -181,6 +189,176 @@ export const workflowContent = {
   github: {},
   salesforce: {},
   zoom: {},
+  procore: {
+    define: {
+      featureName: "Change event",
+      description:
+        "After the field team reports that site conditions require more material or work, the project manager records the potential scope and cost change as a change event.",
+      frictionRisk:
+        "A vague description or missing field evidence can turn a legitimate need into an unreviewable request.",
+      screenshot: {
+        src: procoreDefineChangeEvent,
+        alt: "Recent Procore Change Events line-items view populated with budget codes, quantities, unit costs, rough costs, and pricing statuses",
+        annotationKey: "procore-define-change-event-2025-v1",
+        objectPosition: "50% 50%",
+        scale: 1,
+        highlights: [],
+        credit: "Procore, April 2025",
+        creditUrl: "https://www.procore.com/webinars/change-order-management-for-gcs",
+      },
+      article: {
+        title: "Change event",
+        url: "https://support.procore.com/products/online/user-guide/project-level/change-events/tutorials/edit-a-change-event",
+      },
+    },
+    locate: {
+      featureName: "Commitment and cost code",
+      description:
+        "The project manager links the change event to the affected purchase order, vendor, budget code, and schedule-of-values line instead of treating it as a disconnected cost.",
+      frictionRisk:
+        "Choosing the wrong commitment or cost code can place the additional cost against the wrong agreement or budget line.",
+      screenshot: {
+        src: procoreLocateCommitment,
+        alt: "Recent Procore Change Events view showing populated budget codes, vendors, contract numbers, descriptions, and unit costs",
+        annotationKey: "procore-locate-commitment-2025-v1",
+        objectPosition: "50% 50%",
+        scale: 1,
+        highlights: [],
+        credit: "Procore, April 2025",
+        creditUrl: "https://www.procore.com/webinars/change-order-management-for-gcs",
+      },
+      article: {
+        title: "Commitment and cost code",
+        url: "https://support.procore.com/products/online/user-guide/project-level/change-events/tutorials/edit-a-change-event",
+      },
+    },
+    prepare: {
+      featureName: "Request for Quote",
+      description:
+        "The project manager sends the purchase-order vendor an RFQ with the changed scope, field photos or drawings, and a due date for pricing the additional work.",
+      frictionRisk:
+        "If the RFQ omits quantities, constraints, or attachments, the vendor may price a different scope than the field team expects.",
+      screenshot: {
+        src: procorePrepareEvidence,
+        alt: "Recent Procore Drawings view showing a populated first-floor dimension plan and its revision history as supporting evidence",
+        annotationKey: "procore-prepare-evidence-2025-v1",
+        objectPosition: "50% 58%",
+        scale: 1,
+        highlights: [],
+        credit: "Procore, April 2025",
+        creditUrl: "https://www.procore.com/webinars/change-order-management-for-gcs",
+      },
+      article: {
+        title: "Request for Quote",
+        url: "https://dev.support.procore.com/product-manuals/change-events-project/tutorials/create-rfqs-from-a-change-event",
+      },
+    },
+    confirm: {
+      featureName: "RFQ response",
+      description:
+        "The project manager speaks with the superintendent or field engineer to verify the need, then compares that reality with the vendor's quoted cost, schedule impact, comments, and attachments.",
+      frictionRisk:
+        "A plausible quote can still fund unnecessary work, the wrong quantity, or a condition that the field team has already resolved.",
+      screenshot: {
+        src: procoreConfirmField,
+        alt: "Recent Procore RFI response with a specific material answer, responsible parties, cost code, and links to the related change events and drawing",
+        annotationKey: "procore-confirm-field-2025-v1",
+        objectPosition: "50% 50%",
+        scale: 1,
+        highlights: [],
+        credit: "Procore, April 2025",
+        creditUrl: "https://www.procore.com/webinars/change-order-management-for-gcs",
+      },
+      article: {
+        title: "RFQ response",
+        url: "https://en-gb.support.procore.com/products/online/user-guide/project-level/change-events/tutorials/review-rfq-responses",
+      },
+    },
+    execute: {
+      featureName: "Commitment change order",
+      description:
+        "Once the scope and price are credible, the project manager creates a commitment change order from the change event and carries its latest cost into the change order's schedule of values.",
+      frictionRisk:
+        "Creating the change order before the quote is final can put an outdated amount into the approval workflow.",
+      screenshot: {
+        src: procoreExecuteChangeOrder,
+        alt: "Recent Procore Change Order Reconciliation report connecting client potential change orders to commitment change orders, statuses, and amounts",
+        annotationKey: "procore-execute-change-order-2025-v1",
+        objectPosition: "50% 50%",
+        scale: 1,
+        highlights: [],
+        credit: "Procore, April 2025",
+        creditUrl: "https://www.procore.com/webinars/change-order-management-for-gcs",
+      },
+      article: {
+        title: "Commitment change order",
+        url: "https://dev.support.procore.com/product-manuals/change-events-project/tutorials/create-a-commitment-change-order-from-a-change-event",
+      },
+    },
+    monitor: {
+      featureName: "Designated reviewer",
+      description:
+        "The project manager watches the Pending - In Review change order, follows up with its designated reviewer, and keeps the field from assuming unapproved work is authorized.",
+      frictionRisk:
+        "Approval can stall while schedule pressure encourages the field or vendor to proceed before authorization.",
+      screenshot: {
+        src: procoreMonitorApproval,
+        alt: "Recent Procore Change Order Reconciliation report showing approved, pending, in-review, and draft statuses beside commitment change order numbers",
+        annotationKey: "procore-monitor-approval-2025-v1",
+        objectPosition: "50% 50%",
+        scale: 1,
+        highlights: [],
+        credit: "Procore, April 2025",
+        creditUrl: "https://www.procore.com/webinars/change-order-management-for-gcs",
+      },
+      article: {
+        title: "Designated reviewer",
+        url: "https://support.procore.com/products/online/user-guide/project-level/change-orders/tutorials/approve-or-reject-commitment-change-orders",
+      },
+    },
+    modify: {
+      featureName: "Revise and Resubmit",
+      description:
+        "If the quote or change order is rejected, the project manager sends the vendor's response back for revision and updates the quantity, price, schedule impact, or supporting detail.",
+      frictionRisk:
+        "Manual revision numbering and conversations outside Procore can leave reviewers comparing the wrong version.",
+      screenshot: {
+        src: procoreModifyChangeOrder,
+        alt: "Recent Procore Change Order Reconciliation report comparing commitment change order amounts, line-item amounts, variances, and current statuses",
+        annotationKey: "procore-modify-change-order-2025-v1",
+        objectPosition: "60% 50%",
+        scale: 1,
+        highlights: [],
+        credit: "Procore, April 2025",
+        creditUrl: "https://www.procore.com/webinars/change-order-management-for-gcs",
+      },
+      article: {
+        title: "Revise and Resubmit",
+        url: "https://support.procore.com/products/online/user-guide/project-level/change-events/tutorials/submit-a-quote-as-a-collaborator",
+      },
+    },
+    conclude: {
+      featureName: "Revised Contract",
+      description:
+        "After approval, Procore preserves the original purchase-order amount, adds the approved change order, and shows their sum as the Revised Contract amount on the same purchase order.",
+      frictionRisk:
+        "Approving the wrong amount immediately overstates the purchase order and committed cost reported to the project team.",
+      screenshot: {
+        src: procoreConcludeBudget,
+        alt: "Recent Procore Budget risk view showing current estimated cost, projected over-under, open and pending risk, and notes by cost type",
+        annotationKey: "procore-conclude-budget-2025-v1",
+        objectPosition: "50% 50%",
+        scale: 1,
+        highlights: [],
+        credit: "Procore, April 2025",
+        creditUrl: "https://www.procore.com/webinars/change-order-management-for-gcs",
+      },
+      article: {
+        title: "Revised Contract",
+        url: "https://support.procore.com/products/online/user-guide/project-level/commitments/tutorials/view-a-purchase-order",
+      },
+    },
+  },
 };
 
 function createEmptyStageRecord(productSlug, stage) {
@@ -201,6 +379,8 @@ function createEmptyStageRecord(productSlug, stage) {
       alt: screenshot.alt ?? "",
       objectPosition: screenshot.objectPosition ?? "50% 50%",
       scale: screenshot.scale ?? 1,
+      panX: screenshot.panX ?? 0,
+      panY: screenshot.panY ?? 0,
       credit: screenshot.credit ?? "",
       creditUrl: screenshot.creditUrl ?? "",
       focusLabel: screenshot.focusLabel ?? "",

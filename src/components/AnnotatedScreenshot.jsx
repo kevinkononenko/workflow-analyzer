@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Annotorious,
   ImageAnnotator,
@@ -65,9 +65,17 @@ function AnnotationController({
   editing,
   zoom,
   onZoomChange,
+  panMode,
+  onPanModeChange,
+  onFit,
 }) {
   const annotator = useAnnotator();
   const [status, setStatus] = useState("Ready");
+
+  useEffect(() => {
+    if (!editing) return;
+    setStatus(panMode ? "Pan mode: drag the image" : "Draw mode: drag to add a box");
+  }, [editing, panMode]);
 
   useEffect(() => {
     if (!annotator) return;
@@ -169,7 +177,16 @@ function AnnotationController({
         >
           +
         </button>
-        <button type="button" onClick={() => onZoomChange(1)}>Fit</button>
+        <button type="button" onClick={onFit}>Fit</button>
+        <button
+          className={panMode ? "is-active" : ""}
+          type="button"
+          aria-pressed={panMode}
+          title={panMode ? "Switch to drawing boxes" : "Switch to panning the image"}
+          onClick={() => onPanModeChange(!panMode)}
+        >
+          {panMode ? "Pan mode" : "Draw mode"}
+        </button>
       </div>
       <button type="button" onClick={deleteSelected}>Delete selected</button>
       <button type="button" onClick={reset}>Reset</button>
@@ -187,12 +204,89 @@ export default function AnnotatedScreenshot({
     return new URLSearchParams(window.location.search).get("annotate") === "1";
   }, []);
   const [zoom, setZoom] = useState(screenshot.scale);
+  const [pan, setPan] = useState({
+    x: screenshot.panX ?? 0,
+    y: screenshot.panY ?? 0,
+  });
+  const [panMode, setPanMode] = useState(false);
+  const zoomLayerRef = useRef(null);
+  const dragRef = useRef(null);
 
   const updateZoom = (nextZoom) => {
     const clamped = Math.min(2.5, Math.max(1, nextZoom));
     const rounded = Math.round(clamped * 20) / 20;
     setZoom(rounded);
     updateSessionCalibration(annotationId, { zoom: rounded });
+  };
+
+  const updatePan = (nextPan, persist = true) => {
+    const rounded = {
+      x: Math.round(nextPan.x * 1000) / 1000,
+      y: Math.round(nextPan.y * 1000) / 1000,
+    };
+    setPan(rounded);
+    if (persist) {
+      updateSessionCalibration(annotationId, {
+        panX: rounded.x,
+        panY: rounded.y,
+      });
+    }
+  };
+
+  const fitImage = () => {
+    setZoom(1);
+    setPan({ x: 0, y: 0 });
+    updateSessionCalibration(annotationId, { zoom: 1, panX: 0, panY: 0 });
+  };
+
+  const startPan = (event) => {
+    if (!editing || !panMode || event.button !== 0) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    event.currentTarget.setPointerCapture(event.pointerId);
+    dragRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      panX: pan.x,
+      panY: pan.y,
+    };
+  };
+
+  const movePan = (event) => {
+    const drag = dragRef.current;
+    const layer = zoomLayerRef.current;
+    if (!drag || drag.pointerId !== event.pointerId || !layer) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    const width = layer.offsetWidth || 1;
+    const height = layer.offsetHeight || 1;
+    updatePan(
+      {
+        x: drag.panX + ((event.clientX - drag.startX) / width) * 100,
+        y: drag.panY + ((event.clientY - drag.startY) / height) * 100,
+      },
+      false,
+    );
+  };
+
+  const finishPan = (event) => {
+    const drag = dragRef.current;
+    const layer = zoomLayerRef.current;
+    if (!drag || drag.pointerId !== event.pointerId || !layer) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    const width = layer.offsetWidth || 1;
+    const height = layer.offsetHeight || 1;
+    const finalPan = {
+      x: drag.panX + ((event.clientX - drag.startX) / width) * 100,
+      y: drag.panY + ((event.clientY - drag.startY) / height) * 100,
+    };
+    dragRef.current = null;
+    updatePan(finalPan);
   };
 
   return (
@@ -203,18 +297,26 @@ export default function AnnotatedScreenshot({
         editing={editing}
         zoom={zoom}
         onZoomChange={updateZoom}
+        panMode={panMode}
+        onPanModeChange={setPanMode}
+        onFit={fitImage}
       />
       <div
-        className="annotation-zoom-layer"
+        ref={zoomLayerRef}
+        className={`annotation-zoom-layer${panMode ? " is-panning" : ""}`}
         style={{
-          transform: `scale(${zoom})`,
+          transform: `translate(${pan.x}%, ${pan.y}%) scale(${zoom})`,
           transformOrigin: screenshot.objectPosition,
         }}
+        onPointerDownCapture={startPan}
+        onPointerMoveCapture={movePan}
+        onPointerUpCapture={finishPan}
+        onPointerCancelCapture={finishPan}
       >
         <ImageAnnotator
           containerClassName="annotorious-screenshot"
-          drawingEnabled={editing}
-          userSelectAction={editing ? UserSelectAction.EDIT : UserSelectAction.NONE}
+          drawingEnabled={editing && !panMode}
+          userSelectAction={editing && !panMode ? UserSelectAction.EDIT : UserSelectAction.NONE}
           style={annotationStyle}
         >
           <img

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "diagram:procore": "eraser-diagrams render diagrams/procore-feature-dependency.json --chromium-path '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --scale 2 -o src/assets/procore/feature-dependency.png",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "simple-icons": "^15.13.0"
   },
   "devDependencies": {
+    "@eraserlabs/diagrams-cli": "^0.1.1",
     "@vitejs/plugin-react": "^5.0.2",
     "vite": "^7.1.5"
   }

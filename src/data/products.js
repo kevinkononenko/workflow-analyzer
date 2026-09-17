@@ -5,6 +5,7 @@ import {
   siSalesforce,
   siZoom,
 } from "simple-icons/icons";
+import procoreLogo from "../assets/procore-hex.svg";
 
 export const products = [
   {
@@ -56,6 +57,17 @@ export const products = [
     color: "#2D8CFF",
     code: "05",
     slug: "zoom",
+  },
+  {
+    name: "Procore",
+    description: "Turn a field-driven cost change into an approved update to my purchase order.",
+    persona: "Project Managers",
+    productType: "Construction Management",
+    logoSrc: procoreLogo,
+    color: "#FF6B00",
+    code: "06",
+    slug: "procore",
+    journey: "Manage a purchase order change",
   },
 ];
 

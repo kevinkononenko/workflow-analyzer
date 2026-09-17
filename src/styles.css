@@ -188,10 +188,6 @@ h1 {
   transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
 }
 
-.product-card:nth-child(4) {
-  grid-column: 2 / span 2;
-}
-
 .product-card:hover {
   transform: translateY(-4px);
   border-color: color-mix(in srgb, var(--brand) 38%, #444a52);
@@ -224,6 +220,25 @@ h1 {
   width: 28px;
   height: 28px;
   fill: currentColor;
+}
+
+.product-mark img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.product-mark-monogram {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 27px;
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  background: currentColor;
+  color: #111317;
+  font-family: "DM Mono", monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .card-code {
@@ -353,6 +368,11 @@ h1 {
   height: 32px;
 }
 
+.product-mark-large img {
+  width: 38px;
+  height: 38px;
+}
+
 .workflow-product-lockup h1 {
   font-size: clamp(2.6rem, 5vw, 4.4rem);
 }
@@ -392,6 +412,25 @@ h1 {
 .workflow-timeline-section {
   padding-top: 34px;
   border-top: 1px solid var(--line);
+}
+
+.workflow-feature-diagram {
+  padding: 34px 0 42px;
+  border-top: 1px solid var(--line);
+}
+
+.feature-diagram-frame {
+  margin-top: 24px;
+  overflow: hidden;
+  border: 1px solid #30353c;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.feature-diagram-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .workflow-section-heading {
@@ -567,6 +606,16 @@ h1 {
   will-change: transform;
 }
 
+.annotation-zoom-layer.is-panning {
+  cursor: grab;
+  touch-action: none;
+  transition: none;
+}
+
+.annotation-zoom-layer.is-panning:active {
+  cursor: grabbing;
+}
+
 .workflow-screenshot-image,
 .annotorious-screenshot img {
   display: block;
@@ -634,6 +683,12 @@ h1 {
 
 .annotation-editor-toolbar button:hover {
   border-color: var(--accent);
+  color: var(--accent);
+}
+
+.annotation-editor-toolbar button.is-active {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, #181b20);
   color: var(--accent);
 }
 
@@ -1074,14 +1129,6 @@ h1 {
 @media (max-width: 900px) {
   .product-card {
     grid-column: span 3;
-  }
-
-  .product-card:nth-child(4) {
-    grid-column: span 3;
-  }
-
-  .product-card:last-child {
-    grid-column: 2 / span 4;
   }
 
   .stage-filter {
