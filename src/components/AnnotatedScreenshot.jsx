@@ -6,7 +6,11 @@ import {
   useAnnotator,
 } from "@annotorious/react";
 import "@annotorious/react/annotorious-react.css";
-import { updateSessionCalibration } from "../data/annotationSession";
+import {
+  getSessionCalibration,
+  updateSessionCalibration,
+} from "../data/annotationSession";
+import ScreenshotModal from "./ScreenshotModal";
 
 const annotationStyle = {
   fill: "#e7ff56",
@@ -83,7 +87,9 @@ function AnnotationController({
     const image = annotator.element.querySelector("img");
     if (!image?.naturalWidth || !image?.naturalHeight) return;
 
-    const annotations = highlights.map((highlight) =>
+    const sessionHighlights =
+      getSessionCalibration(annotationId)?.highlights ?? highlights;
+    const annotations = sessionHighlights.map((highlight) =>
       toAnnotation(highlight, image),
     );
 
@@ -203,12 +209,19 @@ export default function AnnotatedScreenshot({
     if (!import.meta.env.DEV) return false;
     return new URLSearchParams(window.location.search).get("annotate") === "1";
   }, []);
-  const [zoom, setZoom] = useState(screenshot.scale);
-  const [pan, setPan] = useState({
-    x: screenshot.panX ?? 0,
-    y: screenshot.panY ?? 0,
+  const [zoom, setZoom] = useState(
+    () => getSessionCalibration(annotationId)?.zoom ?? screenshot.scale,
+  );
+  const [pan, setPan] = useState(() => {
+    const session = getSessionCalibration(annotationId);
+
+    return {
+      x: session?.panX ?? screenshot.panX ?? 0,
+      y: session?.panY ?? screenshot.panY ?? 0,
+    };
   });
   const [panMode, setPanMode] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const zoomLayerRef = useRef(null);
   const dragRef = useRef(null);
 
@@ -289,6 +302,15 @@ export default function AnnotatedScreenshot({
     updatePan(finalPan);
   };
 
+  const openModal = () => {
+    if (!editing) setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    requestAnimationFrame(() => zoomLayerRef.current?.focus());
+  };
+
   return (
     <Annotorious>
       <AnnotationController
@@ -303,7 +325,10 @@ export default function AnnotatedScreenshot({
       />
       <div
         ref={zoomLayerRef}
-        className={`annotation-zoom-layer${panMode ? " is-panning" : ""}`}
+        className={`annotation-zoom-layer${panMode ? " is-panning" : ""}${!editing ? " opens-screenshot-modal" : ""}`}
+        role={!editing ? "button" : undefined}
+        tabIndex={!editing ? 0 : undefined}
+        aria-label={!editing ? "Open screenshot full screen" : undefined}
         style={{
           transform: `translate(${pan.x}%, ${pan.y}%) scale(${zoom})`,
           transformOrigin: screenshot.objectPosition,
@@ -312,6 +337,13 @@ export default function AnnotatedScreenshot({
         onPointerMoveCapture={movePan}
         onPointerUpCapture={finishPan}
         onPointerCancelCapture={finishPan}
+        onClick={openModal}
+        onKeyDown={(event) => {
+          if (!editing && (event.key === "Enter" || event.key === " ")) {
+            event.preventDefault();
+            openModal();
+          }
+        }}
       >
         <ImageAnnotator
           containerClassName="annotorious-screenshot"
@@ -327,6 +359,9 @@ export default function AnnotatedScreenshot({
           />
         </ImageAnnotator>
       </div>
+      {modalOpen && (
+        <ScreenshotModal screenshot={screenshot} onClose={closeModal} />
+      )}
     </Annotorious>
   );
 }

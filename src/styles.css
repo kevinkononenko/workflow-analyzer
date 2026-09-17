@@ -442,6 +442,13 @@ h1 {
   display: block;
 }
 
+.workflow-map-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
 .workflow-section-heading h2 {
   max-width: 680px;
   margin: 0;
@@ -453,12 +460,195 @@ h1 {
   letter-spacing: 0.04em;
 }
 
+.workflow-view-toggle {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid #343a43;
+  border-radius: 9px;
+  background: #0d0f12;
+}
+
+.workflow-view-toggle button {
+  min-height: 36px;
+  padding: 0 13px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #8d949e;
+  cursor: pointer;
+  font: 500 0.73rem "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.workflow-view-toggle button:hover {
+  color: #fff;
+}
+
+.workflow-view-toggle button[aria-pressed="true"] {
+  background: var(--accent);
+  color: #090a0b;
+}
+
+.workflow-view-toggle button:focus-visible,
+.workflow-slide-progress button:focus-visible,
+.workflow-slideshow-controls button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .timeline-shell {
   width: min(100%, 1100px);
   margin-top: 28px;
   margin-right: auto;
   margin-left: 0;
   overflow: visible;
+}
+
+.workflow-slideshow {
+  width: min(100%, 760px);
+  margin: 28px auto 0;
+}
+
+.workflow-slideshow-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 18px;
+}
+
+.workflow-slideshow-heading > div {
+  flex: 0 0 auto;
+}
+
+.workflow-slideshow-heading span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--accent);
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.workflow-slideshow-heading h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.65rem;
+  letter-spacing: -0.035em;
+}
+
+.workflow-slideshow-heading p {
+  max-width: 430px;
+  margin: 0 0 2px;
+  color: #8f969f;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.workflow-slide-progress {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  margin-bottom: 12px;
+}
+
+.workflow-slide-progress button {
+  position: relative;
+  min-width: 0;
+  padding: 10px 4px 9px;
+  border: 0;
+  border-top: 2px solid #30363e;
+  background: transparent;
+  color: #666e78;
+  cursor: pointer;
+  text-align: left;
+}
+
+.workflow-slide-progress button:hover {
+  border-top-color: #737c87;
+  color: #cdd2d8;
+}
+
+.workflow-slide-progress button.is-active {
+  border-top-color: var(--accent);
+  color: #fff;
+}
+
+.workflow-slide-progress span,
+.workflow-slide-progress strong {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workflow-slide-progress span {
+  margin-bottom: 3px;
+  font-family: "DM Mono", monospace;
+  font-size: 0.64rem;
+}
+
+.workflow-slide-progress strong {
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.workflow-slideshow-stage {
+  touch-action: pan-y;
+}
+
+.workflow-slideshow-controls {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.workflow-slideshow-controls button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid #3b424b;
+  border-radius: 8px;
+  background: #15181d;
+  color: #e0e4e8;
+  cursor: pointer;
+  font: 500 0.78rem "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.workflow-slideshow-controls button:first-child {
+  justify-self: start;
+}
+
+.workflow-slideshow-controls button:last-child {
+  justify-self: end;
+}
+
+.workflow-slideshow-controls button:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.workflow-slideshow-controls button:disabled {
+  color: #565e68;
+  cursor: default;
+  opacity: 0.55;
+}
+
+.workflow-slideshow-controls > span {
+  color: #666e78;
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .timeline-shell > div,
@@ -619,6 +809,131 @@ h1 {
 
 .annotation-zoom-layer.is-panning:active {
   cursor: grabbing;
+}
+
+.annotation-zoom-layer.opens-screenshot-modal {
+  cursor: zoom-in;
+}
+
+.annotation-zoom-layer.opens-screenshot-modal:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.screenshot-modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  background: rgba(4, 5, 7, 0.96);
+  backdrop-filter: blur(8px);
+}
+
+.screenshot-modal-toolbar {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  min-height: 44px;
+  margin-bottom: 12px;
+}
+
+.screenshot-modal-zoom {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  border: 1px solid #424953;
+  border-radius: 9px;
+  background: #111419;
+  overflow: hidden;
+}
+
+.screenshot-modal button {
+  display: grid;
+  place-items: center;
+  min-width: 42px;
+  height: 42px;
+  padding: 0 11px;
+  border: 0;
+  border-left: 1px solid #353b44;
+  background: #15191f;
+  color: #e1e5e9;
+  cursor: pointer;
+  font: 500 0.72rem "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.screenshot-modal button:first-child {
+  border-left: 0;
+}
+
+.screenshot-modal button:hover:not(:disabled) {
+  background: #20252c;
+  color: var(--accent);
+}
+
+.screenshot-modal button:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 2px solid var(--accent);
+  outline-offset: -3px;
+}
+
+.screenshot-modal button:disabled {
+  color: #59616b;
+  cursor: default;
+}
+
+.screenshot-modal-zoom output {
+  min-width: 60px;
+  color: var(--accent);
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  text-align: center;
+}
+
+.screenshot-modal .screenshot-modal-close {
+  border: 1px solid #424953;
+  border-radius: 9px;
+}
+
+.screenshot-modal-canvas {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: flex-start;
+  overflow: auto;
+  border: 1px solid #2d333b;
+  border-radius: 10px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    #090b0e;
+  background-size: 24px 24px;
+}
+
+.screenshot-modal-image-frame {
+  position: relative;
+  flex: 0 0 auto;
+  margin: auto;
+  transition: width 140ms ease;
+}
+
+.screenshot-modal-image-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.screenshot-modal-highlight {
+  position: absolute;
+  border: 3px solid #dfff2f;
+  background: rgba(231, 255, 86, 0.04);
+  box-shadow: 0 0 0 1px rgba(9, 10, 11, 0.45);
+  pointer-events: none;
 }
 
 .workflow-screenshot-image,
@@ -1145,6 +1460,10 @@ h1 {
     grid-template-columns: 1fr;
     gap: 30px;
   }
+
+  .workflow-map-heading {
+    display: flex;
+  }
 }
 
 @media (max-width: 620px) {
@@ -1227,6 +1546,69 @@ h1 {
 
   .timeline-shell {
     margin-top: 22px;
+  }
+
+  .workflow-map-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .workflow-view-toggle button {
+    min-height: 34px;
+    padding: 0 9px;
+    font-size: 0.65rem;
+  }
+
+  .workflow-slideshow {
+    margin-top: 22px;
+  }
+
+  .workflow-slideshow-heading {
+    display: block;
+  }
+
+  .workflow-slideshow-heading p {
+    margin-top: 8px;
+    text-align: left;
+  }
+
+  .workflow-slideshow .workflow-card-mobile-header {
+    display: none;
+  }
+
+  .workflow-slide-progress button {
+    padding: 8px 3px;
+    text-align: center;
+  }
+
+  .workflow-slide-progress strong {
+    display: none;
+  }
+
+  .workflow-slideshow-controls {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .workflow-slideshow-controls > span {
+    display: none;
+  }
+
+  .workflow-slideshow-controls button:last-child {
+    grid-column: 3;
+    justify-content: flex-end;
+  }
+
+  .screenshot-modal {
+    padding: 10px;
+  }
+
+  .screenshot-modal-toolbar {
+    margin-bottom: 8px;
+  }
+
+  .screenshot-modal-zoom output {
+    min-width: 50px;
   }
 
   .workflow-card-mobile-header {
