@@ -19,7 +19,7 @@ its product slug and stage id:
 ```js
 jira: {
   define: {
-    featureName: "Feature name",
+    featureName: "Review the issue",
     description: "One sentence explaining how the user applies it.",
     screenshot: {
       src: "/screenshots/jira-define.png",
@@ -40,6 +40,14 @@ jira: {
 Store imported screenshots in `src/assets/<product>/` (or URL-served screenshots in
 `public/screenshots/`). `objectPosition` selects the focal point and `scale` controls the zoom. A
 stage appears in the homepage explorer once every required field is filled in.
+
+### Stage-title standard
+
+Every workflow card title (`featureName`) must be a short, action-oriented phrase that starts with
+a clear verb and describes what the user is doing at that stage. Aim for roughly two to six words.
+Use `Open a pull request`, `Track the approval`, or `Mark the work item done`—not noun-only labels
+such as `Pull request`, `Designated reviewer`, or `Status and Resolution`. The product feature or
+object belongs in the phrase, but the user's action is the title's organizing idea.
 
 ## Workflow research standard
 

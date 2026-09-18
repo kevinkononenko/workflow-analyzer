@@ -70,6 +70,12 @@ arrow at the exact row it references or mutates—not at the general object and 
 field. Highlight changed or derived rows with the relationship accent; leave stable context fields
 neutral.
 
+When a job-map stage applies to an ERD row, place the stage label on the same horizontal line as
+the field: field name left aligned, stage label right aligned. Do not stack the stage label above
+the field or make the row taller to accommodate it. This compact Jira-style treatment is the
+universal convention for stage labels on fields. State boxes continue to place their stage label
+above the state name because those labels describe a lifecycle moment, not a field.
+
 ### External or optional origins
 
 Use a small, light, dashed shape outside the product objects for an off-system trigger or optional
@@ -317,6 +323,27 @@ alignment.
 }
 ```
 
+When the row needs a stage label, reserve space at the right and add a second textbox within the
+same row:
+
+```json
+{
+  "tag": "Textbox",
+  "id": "record-total-stage",
+  "containerId": "record-object",
+  "x": 620,
+  "y": 510,
+  "width": 75,
+  "height": 22,
+  "text": "CONCLUDE",
+  "fontSize": 12,
+  "color": "#b9c0ca",
+  "typeface": "mono",
+  "hAlign": "right",
+  "fixedWidth": true
+}
+```
+
 ### Connections
 
 ```json
@@ -369,4 +396,3 @@ Before considering a diagram complete, verify:
 - [ ] Object containers have no unexplained empty space.
 - [ ] The PNG background is transparent and the diagram works on the site's dark background.
 - [ ] The final render is consistent with the current Procore diagram.
-

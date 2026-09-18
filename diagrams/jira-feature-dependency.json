@@ -1,0 +1,249 @@
+{
+  "entities": [
+    {
+      "tag": "Group", "id": "board-object",
+      "x": 30, "y": 50, "width": 300, "height": 180,
+      "bgColor": "#11151a", "borderColor": "#dfff2f", "borderWidth": 2,
+      "cornerRadius": "round", "styleMode": "plain",
+      "title": {
+        "text": "Kanban Board", "icon": "columns",
+        "iconProps": { "color": "#dfff2f", "size": "lg" },
+        "width": "full", "bgColor": "#20270f", "color": "#f5f7fa",
+        "fontSize": 17, "typeface": "clean", "hAlign": "left"
+      }
+    },
+    {
+      "tag": "Shape", "id": "board-row-filter", "containerId": "board-object",
+      "shape": "rectangle", "x": 32, "y": 115, "width": 296, "height": 55,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "board-filter", "containerId": "board-object",
+      "x": 50, "y": 132, "width": 175, "height": 22,
+      "text": "priority + status filter", "fontSize": 14,
+      "color": "#f5f7fa", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "board-filter-stage", "containerId": "board-object",
+      "x": 230, "y": 132, "width": 80, "height": 22,
+      "text": "DEFINE", "fontSize": 12,
+      "color": "#b9c0ca", "typeface": "mono", "hAlign": "right", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "board-row-items", "containerId": "board-object",
+      "shape": "rectangle", "x": 32, "y": 170, "width": 296, "height": 55,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "board-items", "containerId": "board-object",
+      "x": 50, "y": 187, "width": 255, "height": 22,
+      "text": "matching_work_items[]", "fontSize": 14,
+      "color": "#dfff2f", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "readiness-origin", "shape": "rectangle",
+      "x": 690, "y": 560, "width": 300, "height": 85,
+      "bgColor": "#f1f3f5", "borderColor": "#89919c", "borderWidth": 1,
+      "borderStyle": "dashed", "cornerRadius": "round", "styleMode": "plain",
+      "texts": [
+        { "text": "PREPARE · CONFIRM", "fontSize": 12, "color": "#59626d", "typeface": "mono" },
+        { "text": "Context, tools, files, access & approvals", "fontSize": 14, "color": "#20242a", "typeface": "clean" }
+      ]
+    },
+    {
+      "tag": "Shape", "id": "delivery-work-origin", "shape": "rectangle",
+      "x": 30, "y": 300, "width": 300, "height": 88,
+      "bgColor": "#f1f3f5", "borderColor": "#89919c", "borderWidth": 1,
+      "borderStyle": "dashed", "cornerRadius": "round", "styleMode": "plain",
+      "texts": [
+        { "text": "MODIFY", "fontSize": 12, "color": "#59626d", "typeface": "mono" },
+        { "text": "Work changes in the delivery tool", "fontSize": 14, "color": "#20242a", "typeface": "clean" }
+      ]
+    },
+    {
+      "tag": "Group", "id": "work-item-object",
+      "x": 480, "y": 40, "width": 700, "height": 470,
+      "bgColor": "#11151a", "borderColor": "#5f9dff", "borderWidth": 2,
+      "cornerRadius": "round", "styleMode": "plain",
+      "title": {
+        "text": "Work Item", "icon": "clipboard-check",
+        "iconProps": { "color": "#5f9dff", "size": "lg" },
+        "width": "full", "bgColor": "#172234", "color": "#f5f7fa",
+        "fontSize": 17, "typeface": "clean", "hAlign": "left"
+      }
+    },
+    {
+      "tag": "Shape", "id": "work-item-row-id", "containerId": "work-item-object",
+      "shape": "rectangle", "x": 482, "y": 105, "width": 696, "height": 45,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "work-item-id", "containerId": "work-item-object",
+      "x": 500, "y": 117, "width": 640, "height": 22,
+      "text": "work_item_id", "fontSize": 14,
+      "color": "#f5f7fa", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "work-item-row-description", "containerId": "work-item-object",
+      "shape": "rectangle", "x": 482, "y": 150, "width": 696, "height": 45,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "work-item-description", "containerId": "work-item-object",
+      "x": 500, "y": 162, "width": 430, "height": 22,
+      "text": "description", "fontSize": 14,
+      "color": "#f5f7fa", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "work-item-description-stage", "containerId": "work-item-object",
+      "x": 1030, "y": 162, "width": 120, "height": 22,
+      "text": "LOCATE", "fontSize": 12,
+      "color": "#b9c0ca", "typeface": "mono", "hAlign": "right", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "work-item-row-metadata", "containerId": "work-item-object",
+      "shape": "rectangle", "x": 482, "y": 195, "width": 696, "height": 45,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "work-item-metadata", "containerId": "work-item-object",
+      "x": 500, "y": 207, "width": 640, "height": 22,
+      "text": "priority · assignee · labels", "fontSize": 14,
+      "color": "#f5f7fa", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "work-item-row-comments", "containerId": "work-item-object",
+      "shape": "rectangle", "x": 482, "y": 240, "width": 696, "height": 45,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "work-item-comments", "containerId": "work-item-object",
+      "x": 500, "y": 252, "width": 430, "height": 22,
+      "text": "comments[]", "fontSize": 14,
+      "color": "#dfff2f", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "work-item-comments-stage", "containerId": "work-item-object",
+      "x": 1030, "y": 252, "width": 120, "height": 22,
+      "text": "MONITOR", "fontSize": 12,
+      "color": "#b9c0ca", "typeface": "mono", "hAlign": "right", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "work-item-row-resolution", "containerId": "work-item-object",
+      "shape": "rectangle", "x": 482, "y": 285, "width": 696, "height": 45,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "work-item-resolution", "containerId": "work-item-object",
+      "x": 500, "y": 297, "width": 640, "height": 22,
+      "text": "resolution", "fontSize": 14,
+      "color": "#dfff2f", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "work-item-todo", "containerId": "work-item-object",
+      "shape": "rectangle", "x": 530, "y": 390, "width": 150, "height": 72,
+      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
+      "cornerRadius": "round", "styleMode": "plain",
+      "texts": [{ "text": "To Do", "fontSize": 15, "color": "#ffffff", "typeface": "clean" }]
+    },
+    {
+      "tag": "Shape", "id": "work-item-progress", "containerId": "work-item-object",
+      "shape": "rectangle", "x": 755, "y": 390, "width": 170, "height": 72,
+      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
+      "cornerRadius": "round", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "work-item-progress-stage", "containerId": "work-item-object",
+      "x": 755, "y": 405, "width": 170, "height": 18,
+      "text": "EXECUTE", "fontSize": 12,
+      "color": "#b9c0ca", "typeface": "mono", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "work-item-progress-name", "containerId": "work-item-object",
+      "x": 755, "y": 429, "width": 170, "height": 22,
+      "text": "In Progress", "fontSize": 15,
+      "color": "#ffffff", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "work-item-done", "containerId": "work-item-object",
+      "shape": "rectangle", "x": 1000, "y": 390, "width": 150, "height": 72,
+      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
+      "cornerRadius": "round", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "work-item-done-stage", "containerId": "work-item-object",
+      "x": 1000, "y": 405, "width": 150, "height": 18,
+      "text": "CONCLUDE", "fontSize": 12,
+      "color": "#b9c0ca", "typeface": "mono", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "work-item-done-name", "containerId": "work-item-object",
+      "x": 1000, "y": 429, "width": 150, "height": 22,
+      "text": "Done", "fontSize": 15,
+      "color": "#ffffff", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "board-work-item-label",
+      "x": 338, "y": 105, "width": 138, "height": 38,
+      "text": "selected card opens\nwork item", "fontSize": 11,
+      "color": "#cbd1d8", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "readiness-label",
+      "x": 780, "y": 520, "width": 120, "height": 28,
+      "text": "ready to start", "fontSize": 11,
+      "color": "#cbd1d8", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "delivery-update-label",
+      "x": 340, "y": 322, "width": 135, "height": 36,
+      "text": "records relevant\nchange", "fontSize": 11,
+      "color": "#cbd1d8", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "resolution-label", "containerId": "work-item-object",
+      "x": 930, "y": 342, "width": 210, "height": 28,
+      "text": "workflow sets resolution", "fontSize": 11,
+      "color": "#cbd1d8", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    }
+  ],
+  "connections": [
+    {
+      "from": "board-row-items", "to": "work-item-row-id",
+      "color": "#5f9dff", "lineStyle": "dashed", "lineWidth": 0.75,
+      "fromPort": "right", "toPort": "left", "endArrowhead": "arrow"
+    },
+    {
+      "from": "readiness-origin", "to": "work-item-progress",
+      "color": "#7b8490", "lineStyle": "dashed", "lineWidth": 0.75,
+      "fromPort": "top", "toPort": "bottom", "endArrowhead": "arrow"
+    },
+    {
+      "from": "delivery-work-origin", "to": "work-item-row-comments",
+      "color": "#a8c900", "lineWidth": 0.75,
+      "fromPort": "right", "toPort": "left", "endArrowhead": "arrow"
+    },
+    {
+      "from": "work-item-todo", "to": "work-item-progress",
+      "color": "#8f98a4", "lineWidth": 0.75,
+      "fromPort": "right", "toPort": "left", "endArrowhead": "arrow"
+    },
+    {
+      "from": "work-item-progress", "to": "work-item-done",
+      "color": "#8f98a4", "lineWidth": 0.75,
+      "fromPort": "right", "toPort": "left", "endArrowhead": "arrow"
+    },
+    {
+      "from": "work-item-done", "to": "work-item-row-resolution",
+      "color": "#a8c900", "lineWidth": 0.75,
+      "fromPort": "top", "toPort": "bottom", "endArrowhead": "arrow"
+    }
+  ]
+}

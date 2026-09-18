@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "diagram:github": "node scripts/render-diagram.mjs diagrams/github-feature-dependency.json src/assets/github/feature-dependency.png",
+    "diagram:jira": "node scripts/render-diagram.mjs diagrams/jira-feature-dependency.json src/assets/jira/feature-dependency.png",
     "diagram:procore": "node scripts/render-diagram.mjs diagrams/procore-feature-dependency.json src/assets/procore/feature-dependency.png",
     "preview": "vite preview"
   },

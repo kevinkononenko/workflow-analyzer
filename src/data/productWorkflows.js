@@ -14,7 +14,7 @@ import procoreConcludeBudget from "../assets/procore/flow-conclude-budget-2025.p
 export const workflowContent = {
   jira: {
     define: {
-      featureName: "Kanban board",
+      featureName: "Choose the next work item",
       description:
         "The user scans high-priority work items that have not started and chooses what to take on next.",
       frictionRisk: "Priorities may be outdated or unclear.",
@@ -42,7 +42,7 @@ export const workflowContent = {
       },
     },
     locate: {
-      featureName: "Work item custom view",
+      featureName: "Review work item details",
       description:
         "The user opens the selected work item to review its description, priority, assignee, labels, and other relevant metadata in one place.",
       frictionRisk: "Important context may be incomplete, outdated, or scattered across other tools.",
@@ -67,9 +67,9 @@ export const workflowContent = {
         url: "https://support.atlassian.com/jira-software-cloud/docs/update-a-work-items-details/",
       },
     },
-    prepare: {
+    confirm: {
       outsideProduct: true,
-      featureName: "Outside Jira",
+      featureName: "Gather tools and context",
       description:
         "The user gathers the context, tools, files, and working environment needed to complete the selected work item.",
       frictionRisk: "Missing access, files, or tools may not become apparent until the work begins.",
@@ -82,7 +82,7 @@ export const workflowContent = {
     },
     confirm: {
       outsideProduct: true,
-      featureName: "Outside Jira",
+      featureName: "Confirm readiness to start",
       description:
         "The user confirms that the requirements are clear and that dependencies, access, and approvals are ready before starting.",
       frictionRisk: "Requirements or dependencies may be assumed ready without being explicitly verified.",
@@ -94,7 +94,7 @@ export const workflowContent = {
       },
     },
     execute: {
-      featureName: "Status",
+      featureName: "Start the work",
       description:
         "The user changes the work item's status to In progress, signaling that active work has begun.",
       frictionRisk: "The status may stop reflecting reality if it is not updated as the work changes.",
@@ -120,7 +120,7 @@ export const workflowContent = {
       },
     },
     monitor: {
-      featureName: "Comments",
+      featureName: "Check comments and activity",
       description:
         "The user checks the work item's comments and activity for new context, blockers, and progress updates.",
       frictionRisk: "Important updates can be buried in comments or arrive too late to prevent a blocker.",
@@ -147,7 +147,7 @@ export const workflowContent = {
     },
     modify: {
       outsideProduct: true,
-      featureName: "Outside Jira",
+      featureName: "Revise the work",
       description:
         "The user adjusts the work in the tool where it is being performed, then returns to Jira to record any relevant change.",
       frictionRisk: "Changes made outside Jira may never be reflected in the work item.",
@@ -159,7 +159,7 @@ export const workflowContent = {
       },
     },
     conclude: {
-      featureName: "Status and Resolution",
+      featureName: "Mark the work item done",
       description:
         "The user moves the work item to Done; the configured workflow records a Resolution so Jira treats the work as closed.",
       frictionRisk: "Work may be marked done before its acceptance criteria or intended outcome are actually met.",
@@ -186,12 +186,188 @@ export const workflowContent = {
     },
   },
   "google-drive": {},
-  github: {},
+  github: {
+    define: {
+      featureName: "Review the issue",
+      description:
+        "The developer opens the assigned GitHub issue and reads its goal, acceptance criteria, discussion, labels, and task breakdown before deciding what the change must accomplish.",
+      frictionRisk:
+        "An issue can look actionable while still lacking acceptance criteria, reproductions, or a clear definition of done.",
+      screenshot: {
+        src: "https://docs.github.com/assets/cb-167438/images/help/issues/quickstart-create-large-initiative-issue.png",
+        alt: "GitHub issue showing a detailed description and task breakdown",
+        annotationKey: "github-define-issue-current-v1",
+        objectPosition: "50% 35%",
+        scale: 1,
+        focusLabel: "Issue goal and task breakdown",
+        highlights: [],
+        credit: "GitHub Docs",
+        creditUrl: "https://docs.github.com/en/issues/tracking-your-work-with-issues/learning-about-issues/planning-and-tracking-work-for-your-team-or-project",
+      },
+      article: {
+        title: "Planning and tracking work with issues",
+        url: "https://docs.github.com/en/issues/tracking-your-work-with-issues/learning-about-issues/planning-and-tracking-work-for-your-team-or-project",
+      },
+    },
+    locate: {
+      featureName: "Trace related context",
+      description:
+        "The developer follows sub-issues, linked issues, and references to understand dependencies and prior decisions, then fills any remaining knowledge gaps through onboarding material or conversations outside GitHub.",
+      frictionRisk:
+        "Critical architectural context may live in an unlinked issue, private document, or teammate's memory.",
+      screenshot: {
+        src: "https://docs.github.com/assets/cb-59969/images/help/issues/sub-issue.png",
+        alt: "GitHub issue showing related sub-issues beneath the issue description",
+        annotationKey: "github-locate-related-issues-current-v1",
+        objectPosition: "50% 50%",
+        scale: 1,
+        focusLabel: "Related and dependent issues",
+        highlights: [],
+        credit: "GitHub Docs",
+        creditUrl: "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues",
+      },
+      article: {
+        title: "Adding sub-issues",
+        url: "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues",
+      },
+    },
+    confirm: {
+      featureName: "Create a working branch",
+      description:
+        "The developer starts from the correct base branch, then creates a focused working branch or checks out an existing collaborator branch before making changes.",
+      frictionRisk:
+        "Starting from the wrong or outdated base can introduce unrelated commits, conflicts, and duplicated work.",
+      screenshot: {
+        src: "https://docs.github.com/assets/cb-36152/images/help/repository/file-tree-view-branch-dropdown-expanded.png",
+        alt: "GitHub repository file tree with the branch selector expanded",
+        annotationKey: "github-confirm-branch-current-v2",
+        objectPosition: "28% 35%",
+        scale: 1,
+        focusLabel: "Select or create a branch",
+        highlights: [],
+        credit: "GitHub Docs",
+        creditUrl: "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository",
+      },
+      article: {
+        title: "Creating and deleting branches",
+        url: "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/creating-and-deleting-branches-within-your-repository",
+      },
+    },
+    prepare: {
+      featureName: "Move the issue to In Progress",
+      description:
+        "In the GitHub Project, the developer moves the issue's project entry—called a Project Item in GitHub's data model—to In Progress so the team can see that implementation has started and who owns the work.",
+      frictionRisk:
+        "The project status can become stale or the issue may not be attached to the team's tracking project at all.",
+      screenshot: {
+        src: "https://docs.github.com/assets/cb-79314/images/help/issues/quickstart-projects-board-view.png",
+        alt: "GitHub Projects board with issues organized into status columns including In Progress",
+        annotationKey: "github-prepare-in-progress-current-v2",
+        objectPosition: "50% 50%",
+        scale: 1,
+        focusLabel: "In Progress project status",
+        highlights: [],
+        credit: "GitHub Docs",
+        creditUrl: "https://docs.github.com/en/issues/tracking-your-work-with-issues/learning-about-issues/planning-and-tracking-work-for-your-team-or-project",
+      },
+      article: {
+        title: "Planning and tracking work with projects",
+        url: "https://docs.github.com/en/issues/tracking-your-work-with-issues/learning-about-issues/planning-and-tracking-work-for-your-team-or-project",
+      },
+    },
+    execute: {
+      featureName: "Open a pull request",
+      description:
+        "After writing and committing the code in the working branch, the developer opens a pull request against the intended base branch, explains the proposed improvement, and links it to the issue.",
+      frictionRisk:
+        "A pull request can target the wrong base, omit the linked issue, or become too broad for reviewers to evaluate confidently.",
+      screenshot: {
+        src: "https://docs.github.com/assets/cb-56735/images/help/pull_requests/pr-conversation-example.png",
+        alt: "Open GitHub pull request showing its title, description, status, and Conversation tab",
+        annotationKey: "github-execute-open-pull-request-current-v2",
+        objectPosition: "50% 30%",
+        scale: 1,
+        focusLabel: "Open pull request and its proposed change",
+        highlights: [],
+        credit: "GitHub Docs",
+        creditUrl: "https://docs.github.com/en/get-started/using-github/communicating-on-github",
+      },
+      article: {
+        title: "Creating a pull request",
+        url: "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request",
+      },
+    },
+    monitor: {
+      featureName: "Watch reviews and checks",
+      description:
+        "The developer watches the pull request for reviewer comments and verifies that required status checks—often produced by GitHub Actions—finish successfully.",
+      frictionRisk:
+        "A requested change or failing check can be missed, leaving the pull request blocked while appearing inactive.",
+      screenshot: {
+        src: "https://docs.github.com/assets/cb-82999/images/help/copilot/cloud-agent/comment-to-agent-on-pr.png",
+        alt: "GitHub pull request review timeline showing a changed line, reviewer feedback, reply field, and follow-up activity",
+        annotationKey: "github-monitor-review-timeline-current-v3",
+        objectPosition: "50% 50%",
+        scale: 1,
+        focusLabel: "Review conversation and follow-up activity",
+        highlights: [],
+        credit: "GitHub Docs",
+        creditUrl: "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-on-github",
+      },
+      article: {
+        title: "Incorporating feedback in your pull request",
+        url: "https://docs.github.com/en/pull-requests/how-tos/review-pull-requests/incorporating-feedback-in-your-pull-request",
+      },
+    },
+    modify: {
+      featureName: "Address review feedback",
+      description:
+        "The developer addresses review feedback, commits the adjustments, and pushes them to the same head branch; GitHub updates the pull request and reruns applicable checks.",
+      frictionRisk:
+        "New commits can leave conversations unresolved, introduce fresh failures, or invalidate an earlier approval.",
+      screenshot: {
+        src: "https://docs.github.com/assets/cb-81042/images/help/pull_requests/commit-suggestion-button.png",
+        alt: "GitHub pull request review comment containing a suggested change and commit suggestion controls",
+        annotationKey: "github-modify-review-feedback-current-v1",
+        objectPosition: "50% 50%",
+        scale: 1,
+        focusLabel: "Incorporate review feedback",
+        highlights: [],
+        credit: "GitHub Docs",
+        creditUrl: "https://docs.github.com/en/pull-requests/how-tos/review-pull-requests/incorporating-feedback-in-your-pull-request",
+      },
+      article: {
+        title: "Incorporating feedback in a pull request",
+        url: "https://docs.github.com/en/pull-requests/how-tos/review-pull-requests/incorporating-feedback-in-your-pull-request",
+      },
+    },
+    conclude: {
+      featureName: "Merge and close the issue",
+      description:
+        "Once reviews and required checks pass, the developer merges the pull request into the base branch. A closing keyword in the linked pull request automatically closes the issue.",
+      frictionRisk:
+        "Merging before approvals or checks are complete can ship a defect, while a missing closing link can leave completed work open in the issue tracker.",
+      screenshot: {
+        src: "https://docs.github.com/assets/cb-165497/images/help/pull_requests/merge-pull-request-options.png",
+        alt: "GitHub pull request merge controls showing the available merge methods",
+        annotationKey: "github-conclude-merge-current-v1",
+        objectPosition: "50% 50%",
+        scale: 1,
+        focusLabel: "Merge the pull request",
+        highlights: [],
+        credit: "GitHub Docs",
+        creditUrl: "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/merging-a-pull-request",
+      },
+      article: {
+        title: "Merging a pull request",
+        url: "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/merging-a-pull-request",
+      },
+    },
+  },
   salesforce: {},
-  zoom: {},
   procore: {
     define: {
-      featureName: "Change event",
+      featureName: "Record the change event",
       description:
         "After the field team reports that site conditions require more material or work, the project manager records the potential scope and cost change as a change event.",
       frictionRisk:
@@ -221,7 +397,7 @@ export const workflowContent = {
       },
     },
     locate: {
-      featureName: "Commitment and cost code",
+      featureName: "Link the affected commitment",
       description:
         "The project manager links the change event to the affected purchase order, vendor, budget code, and schedule-of-values line instead of treating it as a disconnected cost.",
       frictionRisk:
@@ -251,7 +427,7 @@ export const workflowContent = {
       },
     },
     prepare: {
-      featureName: "Request for Quote",
+      featureName: "Request vendor pricing",
       description:
         "The project manager sends the purchase-order vendor an RFQ with the changed scope, field photos or drawings, and a due date for pricing the additional work.",
       frictionRisk:
@@ -274,7 +450,7 @@ export const workflowContent = {
       },
     },
     confirm: {
-      featureName: "RFQ response",
+      featureName: "Verify scope and pricing",
       description:
         "The project manager speaks with the superintendent or field engineer to verify the need, then compares that reality with the vendor's quoted cost, schedule impact, comments, and attachments.",
       frictionRisk:
@@ -304,7 +480,7 @@ export const workflowContent = {
       },
     },
     execute: {
-      featureName: "Commitment change order",
+      featureName: "Create the change order",
       description:
         "Once the scope and price are credible, the project manager creates a commitment change order from the change event and carries its latest cost into the change order's schedule of values.",
       frictionRisk:
@@ -334,7 +510,7 @@ export const workflowContent = {
       },
     },
     monitor: {
-      featureName: "Designated reviewer",
+      featureName: "Track the approval",
       description:
         "The project manager watches the Pending - In Review change order, follows up with its designated reviewer, and keeps the field from assuming unapproved work is authorized.",
       frictionRisk:
@@ -364,7 +540,7 @@ export const workflowContent = {
       },
     },
     modify: {
-      featureName: "Revise and Resubmit",
+      featureName: "Revise and resubmit",
       description:
         "If the quote or change order is rejected, the project manager sends the vendor's response back for revision and updates the quantity, price, schedule impact, or supporting detail.",
       frictionRisk:
@@ -394,7 +570,7 @@ export const workflowContent = {
       },
     },
     conclude: {
-      featureName: "Revised Contract",
+      featureName: "Update the purchase order total",
       description:
         "After approval, Procore preserves the original purchase-order amount, adds the approved change order, and shows their sum as the Revised Contract amount on the same purchase order.",
       frictionRisk:

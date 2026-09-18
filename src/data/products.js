@@ -3,7 +3,6 @@ import {
   siGoogledrive,
   siJira,
   siSalesforce,
-  siZoom,
 } from "simple-icons/icons";
 import procoreLogo from "../assets/procore-hex.svg";
 
@@ -37,6 +36,7 @@ export const products = [
     color: "#F0F2F5",
     code: "03",
     slug: "github",
+    journey: "Ship an issue through a pull request",
   },
   {
     name: "Salesforce",
@@ -49,23 +49,13 @@ export const products = [
     slug: "salesforce",
   },
   {
-    name: "Zoom",
-    description: "Meet with people, align quickly, and move decisions forward.",
-    persona: "All Employees",
-    productType: "Video Conferencing",
-    icon: siZoom,
-    color: "#2D8CFF",
-    code: "05",
-    slug: "zoom",
-  },
-  {
     name: "Procore",
     description: "Turn a field-driven cost change into an approved update to my purchase order.",
     persona: "Project Managers",
     productType: "Construction Management",
     logoSrc: procoreLogo,
     color: "#FF6B00",
-    code: "06",
+    code: "05",
     slug: "procore",
     journey: "Manage a purchase order change",
   },

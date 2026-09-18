@@ -1,0 +1,346 @@
+{
+  "entities": [
+    {
+      "tag": "Group", "id": "project-item-object",
+      "x": 30, "y": 40, "width": 420, "height": 230,
+      "bgColor": "#11151a", "borderColor": "#5f9dff", "borderWidth": 2,
+      "cornerRadius": "round", "styleMode": "plain",
+      "title": {
+        "text": "Project Item", "icon": "layout-list",
+        "iconProps": { "color": "#5f9dff", "size": "lg" },
+        "width": "full", "bgColor": "#172234", "color": "#f5f7fa",
+        "fontSize": 17, "typeface": "clean", "hAlign": "left"
+      }
+    },
+    {
+      "tag": "Shape", "id": "project-item-row-issue", "containerId": "project-item-object",
+      "shape": "rectangle", "x": 32, "y": 105, "width": 416, "height": 52,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "project-item-issue", "containerId": "project-item-object",
+      "x": 50, "y": 120, "width": 370, "height": 22,
+      "text": "content: issue_id", "fontSize": 14,
+      "color": "#f5f7fa", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "project-item-progress", "containerId": "project-item-object",
+      "shape": "rectangle", "x": 140, "y": 178, "width": 200, "height": 66,
+      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
+      "cornerRadius": "round", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "project-item-progress-stage", "containerId": "project-item-object",
+      "x": 140, "y": 189, "width": 200, "height": 18,
+      "text": "PREPARE", "fontSize": 12,
+      "color": "#b9c0ca", "typeface": "mono", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "project-item-progress-name", "containerId": "project-item-object",
+      "x": 140, "y": 213, "width": 200, "height": 22,
+      "text": "In Progress", "fontSize": 15,
+      "color": "#ffffff", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+
+    {
+      "tag": "Group", "id": "issue-object",
+      "x": 700, "y": 20, "width": 520, "height": 290,
+      "bgColor": "#11151a", "borderColor": "#5f9dff", "borderWidth": 2,
+      "cornerRadius": "round", "styleMode": "plain",
+      "title": {
+        "text": "Issue", "icon": "circle-dot",
+        "iconProps": { "color": "#5f9dff", "size": "lg" },
+        "width": "full", "bgColor": "#172234", "color": "#f5f7fa",
+        "fontSize": 17, "typeface": "clean", "hAlign": "left"
+      }
+    },
+    {
+      "tag": "Shape", "id": "issue-row-id", "containerId": "issue-object",
+      "shape": "rectangle", "x": 702, "y": 85, "width": 516, "height": 45,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "issue-id", "containerId": "issue-object",
+      "x": 720, "y": 97, "width": 480, "height": 22,
+      "text": "issue_id", "fontSize": 14,
+      "color": "#f5f7fa", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "issue-row-related", "containerId": "issue-object",
+      "shape": "rectangle", "x": 702, "y": 130, "width": 516, "height": 58,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "issue-related", "containerId": "issue-object",
+      "x": 720, "y": 149, "width": 330, "height": 22,
+      "text": "related_issues[]", "fontSize": 14,
+      "color": "#5f9dff", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "issue-related-stage", "containerId": "issue-object",
+      "x": 1070, "y": 149, "width": 125, "height": 22,
+      "text": "LOCATE", "fontSize": 12,
+      "color": "#b9c0ca", "typeface": "mono", "hAlign": "right", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "issue-open", "containerId": "issue-object",
+      "shape": "rectangle", "x": 730, "y": 215, "width": 170, "height": 66,
+      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
+      "cornerRadius": "round", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "issue-open-stage", "containerId": "issue-object",
+      "x": 730, "y": 226, "width": 170, "height": 18,
+      "text": "DEFINE", "fontSize": 12,
+      "color": "#b9c0ca", "typeface": "mono", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "issue-open-name", "containerId": "issue-object",
+      "x": 730, "y": 250, "width": 170, "height": 22,
+      "text": "Open", "fontSize": 15,
+      "color": "#ffffff", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "issue-closed", "containerId": "issue-object",
+      "shape": "rectangle", "x": 1020, "y": 215, "width": 170, "height": 66,
+      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
+      "cornerRadius": "round", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "issue-closed-stage", "containerId": "issue-object",
+      "x": 1020, "y": 226, "width": 170, "height": 18,
+      "text": "CONCLUDE", "fontSize": 12,
+      "color": "#b9c0ca", "typeface": "mono", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "issue-closed-name", "containerId": "issue-object",
+      "x": 1020, "y": 250, "width": 170, "height": 22,
+      "text": "Closed", "fontSize": 15,
+      "color": "#ffffff", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+
+    {
+      "tag": "Group", "id": "branch-object",
+      "x": 30, "y": 410, "width": 420, "height": 175,
+      "bgColor": "#11151a", "borderColor": "#dfff2f", "borderWidth": 2,
+      "cornerRadius": "round", "styleMode": "plain",
+      "title": {
+        "text": "Branch", "icon": "git-branch",
+        "iconProps": { "color": "#dfff2f", "size": "lg" },
+        "width": "full", "bgColor": "#20270f", "color": "#f5f7fa",
+        "fontSize": 17, "typeface": "clean", "hAlign": "left"
+      }
+    },
+    {
+      "tag": "Shape", "id": "branch-row-ref", "containerId": "branch-object",
+      "shape": "rectangle", "x": 32, "y": 475, "width": 416, "height": 55,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "branch-ref-stage", "containerId": "branch-object",
+      "x": 330, "y": 492, "width": 90, "height": 22,
+      "text": "CONFIRM", "fontSize": 12,
+      "color": "#b9c0ca", "typeface": "mono", "hAlign": "right", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "branch-ref", "containerId": "branch-object",
+      "x": 50, "y": 492, "width": 250, "height": 22,
+      "text": "branch_ref + base_ref", "fontSize": 14,
+      "color": "#f5f7fa", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "branch-row-commits", "containerId": "branch-object",
+      "shape": "rectangle", "x": 32, "y": 530, "width": 416, "height": 52,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "branch-commits-stage", "containerId": "branch-object",
+      "x": 330, "y": 545, "width": 90, "height": 22,
+      "text": "MODIFY", "fontSize": 12,
+      "color": "#b9c0ca", "typeface": "mono", "hAlign": "right", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "branch-commits", "containerId": "branch-object",
+      "x": 50, "y": 545, "width": 250, "height": 22,
+      "text": "commits[]", "fontSize": 14,
+      "color": "#dfff2f", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+
+    {
+      "tag": "Group", "id": "pull-request-object",
+      "x": 700, "y": 390, "width": 620, "height": 430,
+      "bgColor": "#11151a", "borderColor": "#ffb84d", "borderWidth": 2,
+      "cornerRadius": "round", "styleMode": "plain",
+      "title": {
+        "text": "Pull Request", "icon": "git-pull-request",
+        "iconProps": { "color": "#ffb84d", "size": "lg" },
+        "width": "full", "bgColor": "#2a2014", "color": "#f5f7fa",
+        "fontSize": 17, "typeface": "clean", "hAlign": "left"
+      }
+    },
+    {
+      "tag": "Shape", "id": "pull-request-row-head", "containerId": "pull-request-object",
+      "shape": "rectangle", "x": 702, "y": 455, "width": 616, "height": 45,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "pull-request-head", "containerId": "pull-request-object",
+      "x": 720, "y": 467, "width": 580, "height": 22,
+      "text": "head_ref", "fontSize": 14,
+      "color": "#f5f7fa", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "pull-request-row-issue", "containerId": "pull-request-object",
+      "shape": "rectangle", "x": 702, "y": 500, "width": 616, "height": 45,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "pull-request-issue", "containerId": "pull-request-object",
+      "x": 720, "y": 512, "width": 580, "height": 22,
+      "text": "linked_issue_id", "fontSize": 14,
+      "color": "#5f9dff", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "pull-request-row-reviews", "containerId": "pull-request-object",
+      "shape": "rectangle", "x": 702, "y": 545, "width": 616, "height": 58,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "pull-request-reviews", "containerId": "pull-request-object",
+      "x": 720, "y": 563, "width": 410, "height": 22,
+      "text": "reviews[] + review_threads[]", "fontSize": 14,
+      "color": "#ffb84d", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "pull-request-reviews-stage", "containerId": "pull-request-object",
+      "x": 1150, "y": 563, "width": 145, "height": 22,
+      "text": "MONITOR", "fontSize": 12,
+      "color": "#b9c0ca", "typeface": "mono", "hAlign": "right", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "pull-request-row-checks", "containerId": "pull-request-object",
+      "shape": "rectangle", "x": 702, "y": 603, "width": 616, "height": 58,
+      "bgColor": "#151a20", "borderColor": "#343b45", "borderWidth": 1,
+      "cornerRadius": "sharp", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "pull-request-checks", "containerId": "pull-request-object",
+      "x": 720, "y": 621, "width": 410, "height": 22,
+      "text": "checks[]", "fontSize": 14,
+      "color": "#ffb84d", "typeface": "mono", "hAlign": "left", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "pull-request-checks-stage", "containerId": "pull-request-object",
+      "x": 1150, "y": 621, "width": 145, "height": 22,
+      "text": "MONITOR", "fontSize": 12,
+      "color": "#b9c0ca", "typeface": "mono", "hAlign": "right", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "pull-request-open", "containerId": "pull-request-object",
+      "shape": "rectangle", "x": 730, "y": 700, "width": 190, "height": 76,
+      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
+      "cornerRadius": "round", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "pull-request-open-stage", "containerId": "pull-request-object",
+      "x": 730, "y": 713, "width": 190, "height": 18,
+      "text": "EXECUTE", "fontSize": 12,
+      "color": "#b9c0ca", "typeface": "mono", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "pull-request-open-name", "containerId": "pull-request-object",
+      "x": 730, "y": 739, "width": 190, "height": 22,
+      "text": "Open", "fontSize": 15,
+      "color": "#ffffff", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Shape", "id": "pull-request-merged", "containerId": "pull-request-object",
+      "shape": "rectangle", "x": 1100, "y": 700, "width": 190, "height": 76,
+      "bgColor": "#1a2028", "borderColor": "#69727e", "borderWidth": 1,
+      "cornerRadius": "round", "styleMode": "plain", "texts": []
+    },
+    {
+      "tag": "Textbox", "id": "pull-request-merged-stage", "containerId": "pull-request-object",
+      "x": 1100, "y": 713, "width": 190, "height": 18,
+      "text": "CONCLUDE", "fontSize": 12,
+      "color": "#b9c0ca", "typeface": "mono", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "pull-request-merged-name", "containerId": "pull-request-object",
+      "x": 1100, "y": 739, "width": 190, "height": 22,
+      "text": "Merged", "fontSize": 15,
+      "color": "#ffffff", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+
+    {
+      "tag": "Textbox", "id": "project-issue-label",
+      "x": 480, "y": 92, "width": 190, "height": 36,
+      "text": "project item references\nthe tracked issue", "fontSize": 11,
+      "color": "#cbd1d8", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "branch-pr-label",
+      "x": 490, "y": 444, "width": 190, "height": 36,
+      "text": "branch selected as\nthe PR head", "fontSize": 11,
+      "color": "#cbd1d8", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "branch-update-label",
+      "x": 490, "y": 595, "width": 190, "height": 36,
+      "text": "new commits update\nthe open PR", "fontSize": 11,
+      "color": "#cbd1d8", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "pr-issue-label",
+      "x": 515, "y": 335, "width": 170, "height": 36,
+      "text": "closing keyword references\nthe issue", "fontSize": 11,
+      "color": "#cbd1d8", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    },
+    {
+      "tag": "Textbox", "id": "merge-close-label",
+      "x": 1105, "y": 327, "width": 180, "height": 36,
+      "text": "merge closes the\nlinked issue", "fontSize": 11,
+      "color": "#cbd1d8", "typeface": "clean", "hAlign": "center", "fixedWidth": true
+    }
+  ],
+  "connections": [
+    {
+      "from": "issue-row-id", "to": "project-item-row-issue",
+      "color": "#5f9dff", "lineStyle": "dashed", "lineWidth": 0.75,
+      "fromPort": "left", "toPort": "right", "endArrowhead": "arrow"
+    },
+    {
+      "from": "branch-object", "to": "pull-request-row-head",
+      "color": "#a8c900", "lineWidth": 1,
+      "fromPort": "right", "toPort": "left", "endArrowhead": "arrow"
+    },
+    {
+      "from": "branch-row-commits", "to": "pull-request-open",
+      "color": "#a8c900", "lineWidth": 0.75,
+      "fromPort": "right", "toPort": "left", "endArrowhead": "arrow"
+    },
+    {
+      "from": "pull-request-row-issue", "to": "issue-row-id",
+      "color": "#5f9dff", "lineStyle": "dashed", "lineWidth": 0.75,
+      "fromPort": "left", "toPort": "left", "endArrowhead": "arrow"
+    },
+    {
+      "from": "pull-request-open", "to": "pull-request-merged",
+      "color": "#8f98a4", "lineWidth": 0.75,
+      "fromPort": "right", "toPort": "left", "endArrowhead": "arrow"
+    },
+    {
+      "from": "pull-request-merged", "to": "issue-closed",
+      "color": "#a8c900", "lineWidth": 0.75,
+      "fromPort": "top", "toPort": "bottom", "endArrowhead": "arrow"
+    }
+  ]
+}
